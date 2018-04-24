@@ -17,6 +17,13 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'google_places'
+gem 'geokit'
+gem "awesome_print"
+gem 'google-maps'
+gem 'geocoder'
+gem 'pry'
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'
