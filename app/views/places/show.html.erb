@@ -1,0 +1,24 @@
+<div id="wrapper">
+<!--   <div class="banner full-view" style="background-image: linear-gradient(-225deg, rgba(255,255,255) 0%, rgba(3,2,1,0.6) 20%), url('<%= @car.photo %>');">
+    <div class="banner-content full-width"> -->
+
+      <div id="place-title">
+        <h1><%= @place.type.capitalize %></h1>
+      </div>
+
+    </div>
+
+  </div>
+  <div id="info">
+
+
+  </div>
+
+  <div id="info-description">
+    <div id="description">
+      <p><%= @place.description%></p>
+    </div>
+    <!-- Form for booking -->
+    <%= render 'places/form', place: @place %>
+  </div>
+</div>
