@@ -1,11 +1,10 @@
 class PlacesController < ApplicationController
 
   def index
-   if Place.open_now(3,24)
+    # this is just to work on the index,
+    # replace it with your code :)
+    # by Cali 25/04
     @places = Place.all
-  else
-    redirect_to_index
-  end
 end
 
 def show
