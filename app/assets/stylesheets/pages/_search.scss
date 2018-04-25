@@ -1,0 +1,26 @@
+.wrapper{
+ background-color: #F6F6F6;
+}
+
+.banner{
+  position: relative;
+  width : 100vw;
+  height: 100vw;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  display: flex;
+
+}
+
+.rectangle-text {
+   background-color:#2C2E3E ;
+  border-radius: 6px;
+   bottom: 30px;
+
+}
+
+.banner h1 {
+  color: #F6F6F6;
+  font-weight: bold;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2)
+}
