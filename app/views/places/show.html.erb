@@ -1,22 +1,27 @@
 <div id="wrapper">
 
-      <div id="place-title">
-        <h1><%= @place.type.capitalize %></h1>
-      </div>
-
-    </div>
-
-  </div>
-  <div id="info">
-
-
+  <div id="place-title">
+    <h1><%= @place.name.capitalize %></h1>
   </div>
 
-  <div id="info-description">
-    <div id="description">
-      <p><%= @place.description%></p>
-    </div>
+</div>
 
-    <%= render 'places/form', place: @place %>
+<div id="info-description">
+  <div id="description">
+    <p><%= @place.address%></p>
+    <p><%= @place.phone_number%></p>
+    <p><%= @place.urlmaps%></p>
+    <p><%= @place.website%></p>
+    <p><%#= @place.google_data["opening_hours"]["weekday_text"].each { |key, array| "#{key}" }%></p>
+
+    <ul>
+    <% @place.google_data["opening_hours"]["weekday_text"].each do |daytime| %>
+      <li>
+        <%= "#{daytime}"  %>
+      </li>
+      <% end %>
+    </ul>
+
   </div>
+  <%#= render 'places/form', place: @place %>
 </div>
