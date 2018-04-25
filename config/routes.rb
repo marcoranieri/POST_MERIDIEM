@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   end
 
   get "users/:id/matches", to: "matches#user_matches"
+  get "search", to: "pages#search"
   #  get "places/:id/matches", to: "matches#destroy"
 
 
