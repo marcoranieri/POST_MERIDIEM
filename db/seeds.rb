@@ -21,9 +21,9 @@ hash_rest = {}
 
 client.spots(coords.lat, coords.lng, { radius: 2000, rankby: "distance", types: restaurant, detail: true}).each do |rest|
 
-  puts "* * * * * * * * * * * *"
+  puts "* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *"
   puts ""
-  puts "* * * * * * * * * * * *"
+  puts "* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *"
 # we create a new Place Object
   place = Place.new
 
@@ -34,26 +34,30 @@ client.spots(coords.lat, coords.lng, { radius: 2000, rankby: "distance", types: 
   place.address = rest[:formatted_address]
   place.phone_number = rest[:international_phone_number]
   place.website = rest[:website]
-  # place.timetable = rest[:opening_hours][:periods][:weekday_text]
   place.urlmaps = rest[:url]
 
-#we store the full OBJ in a Hash (type JsonB on model) so we will carry also REVIEWS and PHOTO
+# nice display of TIMETABLE
+  unless rest.opening_hours.nil?
+    rest.opening_hours["weekday_text"].each do |key, array|
+      puts "#{key}"
+      #puts array
+    end
+  end
+
+# we store the full OBJ in a Hash (type JsonB on model) so we will carry also REVIEWS and PHOTO
   place.google_data = rest
 
 # we save the instance
   place.save
 
 # Diplay the info on terminal
-  puts "place id: #{place.id}"
-  puts place.name
-  puts place.address
-  puts place.website
+   place.name
+   place.address
+   place.timetable.gsub(/["\\\[\]]/, '').split(", /\w/") unless place.timetable.nil?
 
-  # puts place.timetable
+   "TOT Reviews N° #{place.google_data["reviews"].size}"
 
-  puts "TOT Reviews N° #{place.google_data["reviews"].size}"
-
-  puts place.google_data["reviews"]
+  #puts place.google_data["reviews"]["text"]
 
 
 
