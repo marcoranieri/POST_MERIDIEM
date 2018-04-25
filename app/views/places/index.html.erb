@@ -11,8 +11,13 @@
   <div class="tinder--cards">
     <div class="tinder--card">
       <img src=<%= place.photo %>>
-      <h3><%= place.name %></h3>
+      <h3>
+        <%= link_to place.name, place_path(place)  %>
+      </h3>
       <p>This is a demo for Tinder like swipe cards</p>
+      <p>
+        <%= link_to "match", place_matches_path(place, {:place => {:place_id =>  place.id }}), :action => :create, :method => :post %>
+      </p>
     </div>
   </div>
 <% end %>

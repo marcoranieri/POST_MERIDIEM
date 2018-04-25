@@ -1,13 +1,15 @@
 class PlacesController < ApplicationController
 
   def index
-    # this is just to work on the index,
-    # replace it with your code :)
-    # by Cali 25/04
-    @places = Place.all
-end
+    if Place.open_now(:day,:time)
+      @places = Place.all
+    else
+      redirect_to_index
+    end
+  end
 
-def show
-  @place = Place.find(params[:id])
-end
+
+  def show
+    @place = Place.find(params[:id])
+  end
 end
