@@ -66,6 +66,15 @@ client.spots(coords.lat, coords.lng, { radius: 2000, rankby: "distance", types: 
 
   #puts place.google_data["reviews"]["text"]
 
+# # # Photo LINK
+# https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=PHOTO-REFERENCE-HERE&key=AIzaSyBSy-fahBAu25vH9WsuZuUd_jS2P6trgp8
+# https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=PHOTO-REFERENCE-HERE&key=AIzaSyBSy-fahBAu25vH9WsuZuUd_jS2P6trgp8
+# https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=PHOTO-REFERENCE-HERE&key=AIzaSyBSy-fahBAu25vH9WsuZuUd_jS2P6trgp8
+# https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=PHOTO-REFERENCE-HERE&key=AIzaSyBSy-fahBAu25vH9WsuZuUd_jS2P6trgp8
+# https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=PHOTO-REFERENCE-HERE&key=AIzaSyBSy-fahBAu25vH9WsuZuUd_jS2P6trgp8
+
+  # ---> Searching reviews ( array of hashes)
+  # ---> @place.google_data["reviews"]
 
 # # # Photo LINK
 # https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=PHOTO-REFERENCE-HERE&key=AIzaSyBSy-fahBAu25vH9WsuZuUd_jS2P6trgp8
