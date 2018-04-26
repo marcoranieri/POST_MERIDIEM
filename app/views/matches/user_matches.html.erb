@@ -1,6 +1,13 @@
+<h1>Hello <%= current_user.email.split("@")[0] %>! Here your matches:</h1>
 
 <% @user_matches.each do |single_match| %>
-<%= single_match.user %>
-<%= single_match.place %>
-<%= link_to "kill it", match_path(single_match), method: :delete  %>
+  <br>
+
+  <%= image_tag @url %>
+
+  <%= single_match.place.name %>
+  <div class="btn btn-danger btn-sm">
+    <%= link_to "kill it", match_path(single_match), method: :delete  %>
+  </div>
+  <br>----------------------------------
 <% end %>

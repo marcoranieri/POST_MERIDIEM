@@ -5,14 +5,21 @@ class MatchesController < ApplicationController
     @match = Match.new(matches_params)
     @match.user = current_user
     @match.place = @place
-    if @match.save
-      redirect_to "/places"
-    else
-    end
+    user_id = current_user.id
+
+    @match.save
+    # if @match.save
+    #   redirect_to "/users/#{user_id}/matches"
+    # else
+    #   redirect_to "/places"
+    # end
   end
 
   def user_matches
     @user_matches = Match.where(user_id: current_user)
+
+    photo_reference =  @user_matches[0].place.google_data["photos"][0]["photo_reference"]
+    @url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{photo_reference}&key=AIzaSyBSy-fahBAu25vH9WsuZuUd_jS2P6trgp8"
   end
 
   def update
@@ -37,9 +44,12 @@ class MatchesController < ApplicationController
   def show
   end
 
+  private
+
   def matches_params
     params.require(:place).permit(:place_id)
   end
+
 end
 
 
