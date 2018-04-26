@@ -13,7 +13,7 @@ puts "Type the restraurant"
 restaurant = "restaurant"
 
 puts "Type the location"
-location = "via aosta 4 milano"
+location = "vVia della Moscova, 29 milano"
 
 coords = Geokit::Geocoders::GoogleGeocoder.geocode(location)
 
@@ -39,13 +39,13 @@ client.spots(coords.lat, coords.lng, { radius: 2000, rankby: "distance", types: 
 # nice display of TIMETABLE
   unless rest.opening_hours.nil?
     rest.opening_hours["weekday_text"].each do |key, array|
-      puts "#{key}"
+      "#{key}"
       #puts array
     end
   end
 
 # we store the full OBJ in a Hash (type JsonB on model) so we will carry also REVIEWS and PHOTO
-  place.google_data = rest
+  p place.google_data = rest
 
 # we save the instance
   place.save
