@@ -1,30 +1,27 @@
-<h1>places#index</h1>
-<p>Find me in app/views/places/index.html.erb</p>
-
 <div class="tinder">
-  <div class="tinder--status">
+<!--   <div class="tinder--status">
     <i class="fa fa-remove"></i>
     <i class="fa fa-heart"></i>
-  </div>
+  </div> -->
 
-<% @places.each do |place|  %>
-  <div class="tinder--cards">
-    <div class="tinder--card">
-      <img src=<%= place.photo %>>
-      <h3>
-        <%= link_to place.name, place_path(place)  %>
-      </h3>
-      <p>This is a demo for Tinder like swipe cards</p>
-      <p>
-        <%= link_to "match", place_matches_path(place, {:place => {:place_id =>  place.id }}), :action => :create, :method => :post %>
-      </p>
+    <div class="tinder--cards">
+    <% @places.each do |place|  %>
+        <div class="tinder--card">
+          <img src=<%= place.photo %>>
+          <h3>
+            <%= link_to place.name, place_path(place)  %>
+          </h3>
+          <p>This is a demo for Tinder like swipe cards</p>
+          <p>
+            <%= link_to "match", place_matches_path(place, {:place => {:place_id =>  place.id }}), :action => :create, :method => :post %>
+          </p>
+        </div>
+    <% end %>
     </div>
-  </div>
-<% end %>
 
-  <div class="tinder--buttons">
+<!--   <div class="tinder--buttons">
     <button id="nope"><i class="fa fa-remove"></i></button>
     <button id="love"><i class="fa fa-heart"></i></button>
-  </div>
+  </div> -->
 </div>
 
