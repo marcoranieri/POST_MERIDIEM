@@ -1,0 +1,6 @@
+
+<% @user_matches.each do |single_match| %>
+<%= single_match.user %>
+<%= single_match.place %>
+<%= link_to "kill it", match_path(single_match), method: :delete  %>
+<% end %>
