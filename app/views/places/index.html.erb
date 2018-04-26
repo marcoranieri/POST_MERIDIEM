@@ -1,18 +1,24 @@
 <h1>places#index</h1>
 <p>Find me in app/views/places/index.html.erb</p>
-
 ++++++++++++++++++++++++++++++++
 <p>total of open places: <%= @places.size %></p>
 ++++++++++++++++++++++++++++++++
 
 
 <% @places.each do |place|  %>
-<br>----
-<%= link_to place.name, place_path(place)  %>
-<br>
-<%#= link_to "<3 match it", matches_path %>
-<%#= link_to "arbi", place_matches_path, {:action => :create}, :method => :post, %>
-<%= link_to "match", place_matches_path(place, {:place => {:place_id =>  place.id }}), :action => :create, :method => :post %>
 
+  <% if place.google_data["opening_hours"] %>
+    <% if place.google_data["opening_hours"]["open_now"] %>
+
+      <br>----
+      <%= link_to place.name, place_path(place)  %>
+      <br>
+
+      <%= link_to "match", place_matches_path(place, {:place => {:place_id =>  place.id }}), :action => :create, :method => :post %>
+
+    <% end %>
+  <% end %>
 
 <% end %>
+
+

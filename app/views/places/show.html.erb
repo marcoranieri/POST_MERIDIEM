@@ -2,6 +2,7 @@
 
   <div id="place-title">
     <h1><%= @place.name.capitalize %></h1>
+    <h3>Rating: <%= @place.google_data["rating"] %></h3>
   </div>
 
 </div>
@@ -10,9 +11,9 @@
   <div id="description">
     <p><%= @place.address%></p>
     <p><%= @place.phone_number%></p>
-    <p><%= @place.urlmaps%></p>
-    <p><%= @place.website%></p>
-    <p><%#=# @place.text %></p>
+
+    <a href="<%= "#{@place.urlmaps}" %>" target ="_blank"><p>GO to MAPS</p></a>
+    <a href="<%= "#{@place.website}" %>" target ="_blank"><p><%= @place.website%></p></a>
     <p><%#= @place.google_data["opening_hours"]["weekday_text"].each { |key, array| "#{key}" }%></p>
 
     <% photo_reference = @place.google_data["photos"][0]["photo_reference"] %>
@@ -20,8 +21,7 @@
 
     <%= image_tag url %>
     <% @place.google_data["reviews"].each do |review| %>
-    <p> <%= review["text"].gsub!(/[^0-9A-Za-z]/, ' ')
- %> </p>
+    <p> <%= review["text"].gsub!(/[^0-9A-Za-z]/, ' ') %> </p>
     <%# raise %>
     <% end %>
 

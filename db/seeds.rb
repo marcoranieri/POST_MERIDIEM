@@ -6,7 +6,14 @@ require 'geocoder'
 require 'pry'
 
 Geokit::Geocoders::GoogleGeocoder.api_key = 'AIzaSyCOJMoMBpaKE6ATSILodZjqQ5g2m5fWGps'
+
+# RESET SEEDS ---------
 Place.destroy_all
+User.destroy_all
+# ---------------------
+
+User.create(email:"test@test.com", password: "test@test.com")
+
 client = GooglePlaces::Client.new("AIzaSyBSy-fahBAu25vH9WsuZuUd_jS2P6trgp8")
 
 puts "Type the restraurant"
@@ -53,13 +60,24 @@ client.spots(coords.lat, coords.lng, { radius: 2000, rankby: "distance", types: 
 # Diplay the info on terminal
    place.name
    place.address
-   place.timetable.gsub(/["\\\[\]]/, '').split(", /\w/") unless place.timetable.nil?
+   # place.timetable.gsub(/["\\\[\]]/, '').split(", /\w/") unless place.timetable.nil?
 
    "TOT Reviews N° #{place.google_data["reviews"].size}"
 
   #puts place.google_data["reviews"]["text"]
 
+# # # Photo LINK
+# https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=PHOTO-REFERENCE-HERE&key=AIzaSyBSy-fahBAu25vH9WsuZuUd_jS2P6trgp8
+# https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=PHOTO-REFERENCE-HERE&key=AIzaSyBSy-fahBAu25vH9WsuZuUd_jS2P6trgp8
+# https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=PHOTO-REFERENCE-HERE&key=AIzaSyBSy-fahBAu25vH9WsuZuUd_jS2P6trgp8
+# https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=PHOTO-REFERENCE-HERE&key=AIzaSyBSy-fahBAu25vH9WsuZuUd_jS2P6trgp8
+# https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=PHOTO-REFERENCE-HERE&key=AIzaSyBSy-fahBAu25vH9WsuZuUd_jS2P6trgp8
 
+  # ---> Searching reviews ( array of hashes)
+  # ---> @place.google_data["reviews"]
+
+# # # Photo LINK
+# https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=PHOTO-REFERENCE-HERE&key=AIzaSyBSy-fahBAu25vH9WsuZuUd_jS2P6trgp8
 
   # ---> Searching reviews ( array of hashes)
   # ---> @place.google_data["reviews"]
