@@ -46,13 +46,13 @@ client.spots(coords.lat, coords.lng, { radius: 2000, rankby: "distance", types: 
 # nice display of TIMETABLE
   unless rest.opening_hours.nil?
     rest.opening_hours["weekday_text"].each do |key, array|
-      puts "#{key}"
+       "#{key}"
       #puts array
     end
   end
 
 # we store the full OBJ in a Hash (type JsonB on model) so we will carry also REVIEWS and PHOTO
-  place.google_data = rest
+  p place.google_data = rest
 
 # we save the instance
   place.save
@@ -60,7 +60,7 @@ client.spots(coords.lat, coords.lng, { radius: 2000, rankby: "distance", types: 
 # Diplay the info on terminal
    place.name
    place.address
-   place.timetable.gsub(/["\\\[\]]/, '').split(", /\w/") unless place.timetable.nil?
+   # place.timetable.gsub(/["\\\[\]]/, '').split(", /\w/") unless place.timetable.nil?
 
    "TOT Reviews N° #{place.google_data["reviews"].size}"
 
