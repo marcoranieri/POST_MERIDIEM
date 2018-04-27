@@ -153,3 +153,6 @@ document.addEventListener('DOMContentLoaded', function () {
         e.target.classList.add('in-deck');
     });
 });
+
+
+document.getElementById("tinder--card").addEventListener("click", link_to_indexs);
