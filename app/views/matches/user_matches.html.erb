@@ -3,7 +3,9 @@
 <% @user_matches.each do |single_match| %>
   <br>
 
-  <%= image_tag @url %>
+  <% photo_reference =  single_match.place.google_data["photos"][0]["photo_reference"] %>
+  <% url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{photo_reference}&key=AIzaSyBSy-fahBAu25vH9WsuZuUd_jS2P6trgp8" %>
+  <%= image_tag url %>
 
   <%= single_match.place.name %>
   <div class="btn btn-danger btn-sm">

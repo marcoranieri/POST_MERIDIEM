@@ -3,7 +3,7 @@
   <div id="place-title">
     <h1><%= @place.name.capitalize %></h1>
 
-    <h3>Rating: <%= @place.google_data["rating"] %></h3>
+    <h3>Rating: <big><%= @place.google_data["rating"] %></big> <small>/ 5</small></h3>
 
     -- <i class="fas fa-hand-holding-heart"></i> --> <em><small>
     <%= link_to "match it", place_matches_path(@place, {:place => {:place_id =>  @place.id }}), :action => :create, :method => :post %></small></em>
@@ -23,19 +23,33 @@
     <a href="<%= "#{@place.website}" %>" target ="_blank"><p><%= @place.website%></p></a>
     <p><%#= @place.google_data["opening_hours"]["weekday_text"].each { |key, array| "#{key}" }%></p>
 
-    <%= image_tag @url %>
-    <% @place.google_data["reviews"].each do |review| %>
-    <p> <%= review["text"].gsub!(/[^0-9A-Za-z]/, ' ') %> </p>
-    <%# raise %>
+    <% if @place.google_data["photos"] != nil %>
+      <% photo_reference = @place.google_data["photos"][0]["photo_reference"] %>
+      <% url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{photo_reference}&key=AIzaSyBSy-fahBAu25vH9WsuZuUd_jS2P6trgp8"  %>
+
+      <%= image_tag url %>
     <% end %>
 
     <ul>
-    <% @place.google_data["opening_hours"]["weekday_text"].each do |daytime| %>
-      <li>
-        <%= "#{daytime}"  %>
-      </li>
+      <% @place.google_data["opening_hours"]["weekday_text"].each do |daytime| %>
+        <li>
+          <%= "#{daytime}"  %>
+        </li>
       <% end %>
     </ul>
+
+    <% @place.google_data["reviews"].each do |review| %>
+      <div style="display: flex; padding: 10px;">
+        <%= image_tag "#{review['profile_photo_url']}", size: "40x40", alt: "review profile pic" %>
+        <p style="margin-left: 20px;"><%= review["rating"] %></p>
+        <p style="margin-left: 20px;"><strong><%= review["author_name"] %></strong></p>
+
+
+        <p style="margin-left: 20px;"> <%= review["text"].gsub!(/[^0-9A-Za-z]/, ' ').first(100) %> ... </p>
+        <%# raise %>
+        </div>
+    <% end %>
+
 
   </div>
 </div>
