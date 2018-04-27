@@ -155,4 +155,4 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-document.getElementById("tinder--card").addEventListener("click", link_to_indexs);
+document.getElementById("tinder--card").addEventListener("click", link_to_index);
