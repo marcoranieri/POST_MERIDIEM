@@ -24,6 +24,7 @@
 
 }
 .card-description h3{
+  z-index: 1000;
     position: absolute;
        bottom: -207px;
     right: -274px;
@@ -44,7 +45,7 @@
     z-index: 1;
     height: 0;
     width: 0;
-    opacity: 0.3;
+    opacity: 0.1;
     border-left: 271px solid #2C2E3E;
     border-right: 100px solid transparent;
     border-top: 120px solid transparent;
