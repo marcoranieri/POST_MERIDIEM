@@ -19,7 +19,7 @@
     <p><%= @place.address%></p>
     <p><%= @place.phone_number%></p>
 
-    <a href="<%= "#{@place.urlmaps}" %>" target ="_blank"><p>GO to MAPS - <i class="far fa-map"></i></p></a>
+<!--     <a href="<%= "#{@place.urlmaps}" %>" target ="_blank"><p>GO to MAPS - <i class="far fa-map"></i></p></a> -->
 
     <%= link_to "Go to address", "https://www.google.com/maps/dir/?api=1&destination=#{URI::encode(@place.address)}" %>
 
@@ -30,13 +30,14 @@
     <% if @place.google_data["photos"] != nil %>
       <% photo_reference = @place.google_data["photos"][0]["photo_reference"] %>
       <% url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{photo_reference}&key=AIzaSyBSy-fahBAu25vH9WsuZuUd_jS2P6trgp8"  %>
+    <% end %>
 
       <%= image_tag url %>
     <% end %>
 
     <% @place.google_data["reviews"].each do |review| %>
       <p> <%= review["text"].gsub!(/[!@%&"]/,' ') %> </p>
-      <%# raise %>
+
     <% end %>
 
     <ul>
@@ -55,7 +56,6 @@
 
 
         <p style="margin-left: 20px;"> <%= review["text"].gsub!(/[^0-9A-Za-z]/, ' ').first(100) %> ... </p>
-        <%# raise %>
         </div>
     <% end %>
 
