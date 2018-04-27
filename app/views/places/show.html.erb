@@ -11,6 +11,7 @@
   <div id="description">
     <p><%= @place.address%></p>
     <p><%= @place.phone_number%></p>
+
     <a href="<%= "#{@place.urlmaps}" %>" target ="_blank"><p>GO to MAPS</p></a>
     <a href="<%= "#{@place.website}" %>" target ="_blank"><p><%= @place.website%></p></a>
     <p><%#= @place.google_data["opening_hours"]["weekday_text"].each { |key, array| "#{key}" }%></p>
@@ -18,10 +19,12 @@
     <% photo_reference = @place.google_data["photos"][0]["photo_reference"] %>
     <% url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{photo_reference}&key=AIzaSyBSy-fahBAu25vH9WsuZuUd_jS2P6trgp8"  %>
 
-    <%= image_tag_url %>
 
-
-
+    <%= image_tag url %>
+    <% @place.google_data["reviews"].each do |review| %>
+    <p> <%= review["text"].gsub!(/[^0-9A-Za-z]/, ' ') %> </p>
+    <%# raise %>
+    <% end %>
 
     <ul>
     <% @place.google_data["opening_hours"]["weekday_text"].each do |daytime| %>
