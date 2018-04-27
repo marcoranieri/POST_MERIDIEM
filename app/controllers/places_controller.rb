@@ -1,16 +1,17 @@
 class PlacesController < ApplicationController
 
   def index
-
-    if Place.open_now(:day,:time)
-      @places = Place.all
-    else
-      redirect_to_index
-    end
+    @places = Place.all
   end
 
 
   def show
     @place = Place.find(params[:id])
   end
+
+  def show_image
+    photo_reference = @place.google_data["photos"][0]["photo_reference"]
+  end
+
 end
+

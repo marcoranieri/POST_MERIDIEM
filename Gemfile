@@ -11,6 +11,7 @@ gem 'rails', '5.1.6'
 gem 'redis'
 gem 'binding_of_caller'
 gem 'better_errors'
+gem 'omniauth-facebook'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
@@ -25,6 +26,7 @@ gem "awesome_print"
 gem 'google-maps'
 gem 'geocoder'
 gem 'pry'
+gem 'hammerjs-rails'
 
 
 group :development do
