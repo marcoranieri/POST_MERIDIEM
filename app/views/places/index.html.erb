@@ -1,6 +1,3 @@
-<h3>places#index</h3>
-<h1>Main page where people will SWIPE places</h1>
-
 <div class="tinder">
 <!--   <div class="tinder--status">
     <i class="fa fa-remove"></i>
@@ -14,7 +11,17 @@
         <% if place.google_data["opening_hours"]["open_now"] %>
 
           <div class="tinder--card">
-            <img src="http://i0.kym-cdn.com/photos/images/original/000/741/861/6b4.jpg">
+
+  <%= link_to place_path(place) do %>
+    <% if place.google_data["photos"] != nil %>
+      <% photo_reference = place.google_data["photos"][0]["photo_reference"] %>
+      <% url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{photo_reference}&key=AIzaSyBSy-fahBAu25vH9WsuZuUd_jS2P6trgp8"  %>
+
+      <%= image_tag url %>
+    <% end %>
+    <span>Like</span>
+  <% end %>
+
             <h3>
               <%= link_to place.name, place_path(place)  %>
             </h3>
