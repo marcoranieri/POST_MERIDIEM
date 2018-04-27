@@ -8,6 +8,7 @@ require 'pry'
 Geokit::Geocoders::GoogleGeocoder.api_key = 'AIzaSyCOJMoMBpaKE6ATSILodZjqQ5g2m5fWGps'
 
 # RESET SEEDS ---------
+Match.destroy_all
 Place.destroy_all
 User.destroy_all
 # ---------------------
