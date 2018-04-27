@@ -20,13 +20,11 @@
 
     <a href="<%= "#{@place.urlmaps}" %>" target ="_blank"><p>GO to MAPS - <i class="far fa-map"></i></p></a>
 
-<<<<<<< HEAD
     <%= link_to "Go to address", "https://www.google.com/maps/dir/?api=1&destination=#{URI::encode(@place.address)}" %>
 
-=======
+
     <a href="<%= "#{@place.website}" %>" target ="_blank"><p><%= @place.website%></p></a>
     <p><%#= @place.google_data["opening_hours"]["weekday_text"].each { |key, array| "#{key}" }%></p>
->>>>>>> master
 
     <% if @place.google_data["photos"] != nil %>
       <% photo_reference = @place.google_data["photos"][0]["photo_reference"] %>
