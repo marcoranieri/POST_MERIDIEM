@@ -1,4 +1,5 @@
-
+<h3>places#index</h3>
+<h1>Main page where people will SWIPE places</h1>
 
 <div class="tinder">
 <!--   <div class="tinder--status">
@@ -11,6 +12,7 @@
 
       <% if place.google_data["opening_hours"] %>
         <% if place.google_data["opening_hours"]["open_now"] %>
+
           <div class="tinder--card">
             <img src="http://i0.kym-cdn.com/photos/images/original/000/741/861/6b4.jpg">
             <h3>
@@ -19,13 +21,14 @@
 
             <p>places.address</p>
             <p>
-              <%= link_to "match", place_matches_path(place, {:place => {:place_id =>  place.id }}), :action => :create, :method => :post %>
+              <%= link_to "match it", place_matches_path(place, {:place => {:place_id =>  place.id }}), :action => :create, :method => :post %>
+              <i class="fas fa-hand-holding-heart"></i>
             </p>
-
           </div>
 
         <% end %>
       <% end %>
+
     <% end %>
   </div>
 
@@ -34,5 +37,3 @@
     <button id="nope"><i class="fa fa-remove"></i></button>
     <button id="love"><i class="fa fa-heart"></i></button>
   </div> -->
-</div>
-
