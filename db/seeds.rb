@@ -20,7 +20,7 @@ puts "Type the restraurant"
 restaurant = "restaurant"
 
 puts "Type the location"
-location = "vVia della Moscova, 29 milano"
+location = "corso como 10, milano"
 
 coords = Geokit::Geocoders::GoogleGeocoder.geocode(location)
 

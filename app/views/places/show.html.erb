@@ -21,7 +21,7 @@
 
     <%= image_tag url %>
     <% @place.google_data["reviews"].each do |review| %>
-    <p> <%= review["text"].gsub!(/[^0-9A-Za-z]/, ' ') %> </p>
+    <p> <%= review["text"].gsub!(/[!@%&"]/,' ') %> </p>
     <%# raise %>
     <% end %>
 
