@@ -103,7 +103,7 @@
 
 
 
-const config = {
+var config = {
   /**
    * Invoked in the event of dragmove.
    * Returns a value between 0 and 1 indicating the completeness of the throw out condition.
