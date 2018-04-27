@@ -26,6 +26,7 @@ gem "awesome_print"
 gem 'google-maps'
 gem 'geocoder'
 gem 'pry'
+gem 'hammerjs-rails'
 
 
 group :development do

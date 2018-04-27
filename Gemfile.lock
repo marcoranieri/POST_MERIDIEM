@@ -85,6 +85,7 @@ GEM
       ruby-hmac (~> 0.4.0)
     google_places (1.1.0)
       httparty (>= 0.13.1)
+    hammerjs-rails (2.0.8)
     hashie (2.0.5)
     httparty (0.16.2)
       multi_xml (>= 0.5.2)
@@ -240,6 +241,7 @@ DEPENDENCIES
   geokit
   google-maps
   google_places
+  hammerjs-rails
   jbuilder (~> 2.0)
   listen (~> 3.0.5)
   omniauth-facebook

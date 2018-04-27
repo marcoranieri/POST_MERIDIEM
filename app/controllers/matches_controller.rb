@@ -5,10 +5,14 @@ class MatchesController < ApplicationController
     @match = Match.new(matches_params)
     @match.user = current_user
     @match.place = @place
-    if @match.save
-      redirect_to "/places"
-    else
-    end
+    user_id = current_user.id
+
+    @match.save
+    # if @match.save
+    #   redirect_to "/users/#{user_id}/matches"
+    # else
+    #   redirect_to "/places"
+    # end
   end
 
   def user_matches
@@ -37,9 +41,12 @@ class MatchesController < ApplicationController
   def show
   end
 
+  private
+
   def matches_params
     params.require(:place).permit(:place_id)
   end
+
 end
 
 

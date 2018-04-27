@@ -1,25 +1,30 @@
 <div class="navbar-wagon">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logo.png", height: 50 %>
+    <%= image_tag "logo_pink.png", class: "logo-navbar" %>
   <% end %>
+
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <% if user_signed_in? %>
 
-      <!-- Links when logged in -->
-      <%= link_to "Host", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Trips", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <!-- Links when logged I need to replace -->
 
-      <!-- Avatar with dropdown menu -->
+
+      <%= link_to image_tag("full_heart_icon.png"), "#", class: "favorites-navbar" %>
+
+      <!-- Avatar with dropdown menu I need to replace -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
+<<<<<<< HEAD
           <%# avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
 <%#= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
 
+=======
+          <%= image_tag "icons_about_user.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+>>>>>>> master
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <%= link_to "#" do %>
