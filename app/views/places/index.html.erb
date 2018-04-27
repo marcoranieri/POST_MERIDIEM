@@ -1,27 +1,39 @@
 <h3>places#index</h3>
 <h1>Main page where people will SWIPE places</h1>
 
-++++++++++++++++++++++++++++++++
-<p>total of open places: <%= @places.size %></p>
-++++++++++++++++++++++++++++++++
+<div class="tinder">
+<!--   <div class="tinder--status">
+    <i class="fa fa-remove"></i>
+    <i class="fa fa-heart"></i>
+  </div> -->
 
+  <div class="tinder--cards">
+    <% @places.each do |place|  %>
 
-<% @places.each do |place|  %>
+      <% if place.google_data["opening_hours"] %>
+        <% if place.google_data["opening_hours"]["open_now"] %>
 
-  <% if place.google_data["opening_hours"] %>
-    <% if place.google_data["opening_hours"]["open_now"] %>
+          <div class="tinder--card">
+            <img src="http://i0.kym-cdn.com/photos/images/original/000/741/861/6b4.jpg">
+            <h3>
+              <%= link_to place.name, place_path(place)  %>
+            </h3>
 
-      <div>
+            <p>places.address</p>
+            <p>
+              <%= link_to "match it", place_matches_path(place, {:place => {:place_id =>  place.id }}), :action => :create, :method => :post %>
+              <i class="fas fa-hand-holding-heart"></i>
+            </p>
+          </div>
 
-        <br>---- <big><strong>
-        <%= link_to place.name, place_path(place)  %>
-        -- <i class="fas fa-hand-holding-heart"></i> --> <em><small>
-        <%= link_to "match it", place_matches_path(place, {:place => {:place_id =>  place.id }}), :action => :create, :method => :post %></small></em>
-        </strong></big><br>
+        <% end %>
+      <% end %>
 
-
-      </div>
     <% end %>
-  <% end %>
+  </div>
 
-<% end %>
+
+<!--   <div class="tinder--buttons">
+    <button id="nope"><i class="fa fa-remove"></i></button>
+    <button id="love"><i class="fa fa-heart"></i></button>
+  </div> -->
