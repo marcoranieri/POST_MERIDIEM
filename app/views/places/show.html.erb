@@ -20,6 +20,8 @@
 
     <%= image_tag url %>
 
+    <%= link_to "Go to address", "https://www.google.com/maps/dir/?api=1&destination=#{URI::encode(@place.address)}" %>
+
 
 
 
