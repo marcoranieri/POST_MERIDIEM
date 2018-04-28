@@ -18,6 +18,7 @@ class MatchesController < ApplicationController
     user_id = current_user.id
     @match.save
   end
+  redirect_to "/users/#{user_id}/matches"
     # # if @match.save
     #   redirect_to "/users/#{user_id}/matches"
     # else

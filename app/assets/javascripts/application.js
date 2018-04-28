@@ -54,9 +54,13 @@ document.addEventListener('DOMContentLoaded', function () {
     data: { username: window.username},
   });
 
+  var test = e.throwDirection.toString();
+  console.log(test);
+  if (test === "Symbol(RIGHT)") {
+    alert("match it!");
+  };
 
-  });
-
+});
   stack.on('throwin', function (e) {
     console.log(e.target.innerText || e.target.textContent, 'has been thrown into the stack from the', e.throwDirection, 'direction.');
     console.log("sono la");
