@@ -18,9 +18,23 @@
       <% url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{photo_reference}&key=AIzaSyBcp8Akff_wtFaa3hLNhsfJk6CGftSdNng"  %>
 
       <%= image_tag url %>
-      <% end %>
+
+    <% end %>
+    <span>Like</span>
+
+            <h3>
+              <%= link_to place.name, place_path(place)  %>
+            </h3>
+            <p><%= place.google_data["rating"] %></p>
+            <p>places.address</p>
+            <p>
+              <%= link_to "match it", place_matches_path(place, {:place => {:place_id =>  place.id }}), :action => :create, :method => :post %>
+              <i class="fas fa-hand-holding-heart"></i>
+            </p>
+          </div>
+
+
       <span>Like</span>
-      <% end %>
 
       <h3>
         <%= link_to place.name, place_path(place)  %>
@@ -28,6 +42,7 @@
 
       <p>places.address</p>
       <p>
+      <% end %>
 
        <%= link_to "match it", place_matches_path(place, {:place => {:place_id =>  place.id }}), :action => :create, :method => :post %>
        <i class="fas fa-hand-holding-heart"></i>
