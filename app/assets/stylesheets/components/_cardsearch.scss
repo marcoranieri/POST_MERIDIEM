@@ -1,26 +1,20 @@
 
-  .card {
-    margin-left: 12px;
-    height: 120px;
-    margin-top: 36px;
-    background-position: center;
+.wrapper{
+    max-width: 1000px;
+    margin: 50px auto;
+    display:flex;
+    flex-direction: column;
+}
+
+
+
+.card {
+    flex: 0 1 auto;
+    margin: 10px;
+    border-radius: 1px;
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-    position: relative;
-}
-
-.card-category {
-    color: #34374C;
-    position: absolute;
-    font-size: 15px;
-    font-weight: bold;
-    margin: 10px 280px 300px;
-}
-
-.p{
-    color:#34374C;
-    padding-left: 300px;
-    padding-top: 2000px;
-    margin: 0 0 50px;
+    transition: all 0.3s ease;
+    background-color: #F6F6F6;
 
 }
 .card-description h3{
@@ -29,16 +23,15 @@
        bottom: -207px;
     right: -274px;
     font-size: 18px;
+
 }
 
-.card-description p {
-    position: absolute;
-    top: 34px;
+.info-card {
+    display:flex;
+    flex-direction: column;
     color: #34374C;
-    font-size: 12px;
-    font-weight: lighter;
-    right: 2px;
 }
+
 
 
 .triangle {
@@ -72,19 +65,11 @@
     top: 0;
     -webkit-clip-path: polygon(0% 0%, 0% 43%, 48% 43%, 100% 0%);
     clip-path: polygon(0% 0%, 0% 43%, 48% 43%, 100% 0%);
+>>>>>>> master
 }
 
-.trapezium-cafe {
-   z-index: 1;
-        width: 263px;
-    height: 279px;
-    background: url(https://images.unsplash.com/photo-1503481766315-7a586b20f66d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=171a33e240a569a1ec388813e629ebe0&auto=format&fit=crop&w=500&q=60) center center;
-    background-size: cover;
-    position: absolute;
-    top: 0;
-    -webkit-clip-path: polygon(0% 0%, 0% 43%, 48% 43%, 100% 0%);
-    clip-path: polygon(0% 0%, 0% 43%, 48% 43%, 100% 0%);
+.info-card p{
+    font-size: 14px;
 }
-
 
 

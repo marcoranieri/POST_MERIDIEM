@@ -25,7 +25,7 @@
             <h3>
               <%= link_to place.name, place_path(place)  %>
             </h3>
-
+            <p><%= place.google_data["rating"] %></p>
             <p>places.address</p>
             <p>
               <%= link_to "match it", place_matches_path(place, {:place => {:place_id =>  place.id }}), :action => :create, :method => :post %>
