@@ -13,6 +13,5 @@ Rails.application.routes.draw do
 
 
   resources :matches, only: [:index, :destroy]
-  # root to: 'pages#index'
 
 end
