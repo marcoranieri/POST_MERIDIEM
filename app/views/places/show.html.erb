@@ -19,7 +19,7 @@
       <p><%= @place.address%></p>
       <p><%= @place.phone_number%></p>
 
-         <a href="<%= "#{@place.urlmaps}" %>" target ="_blank"><p>GO to MAPS - <i class="far fa-map"></i></p></a>
+      <a href="<%= "#{@place.urlmaps}" %>" target ="_blank"><p>GO to MAPS - <i class="far fa-map"></i></p></a>
 
       <%= link_to "Go to address", "https://www.google.com/maps/dir/?api=1&destination=#{URI::encode(@place.address)}", target: "_blank" %>
 
@@ -34,38 +34,58 @@
 
       <%= image_tag url, width: "100%" %>
 
-        <ul>
-          <% @place.google_data["opening_hours"]["weekday_text"].each do |daytime| %>
-          <li>
-            <%= "#{daytime}"  %>
-          </li>
-          <% end %>
-        </ul>
 
 
-        <% @place.google_data["reviews"].each do |review| %>
-        <div style="display: flex; padding: 10px;">
-          <%= image_tag "#{review['profile_photo_url']}", size: "40x40", alt: "review profile pic" %>
-          <p style="margin-left: 20px;"><%= review["rating"] %></p>
-          <p style="margin-left: 20px;"><strong><%= review["author_name"] %></strong></p>
-
-            <% content_text = review["text"] %>
-
-
-            <% if content_text %>
-              <div class="expandable">
-                <p class="text-intro"> <%= content_text.first(100) %> <span class="text-all" style="display:none;"> <%= content_text[99..-1]  %> </span>
-                </p>
-                <% if content_text[99] %>
-                  <a class="text-show-more" href="#">Show more</a>
-                  <a class="text-show-less" style="display:none;" href="#">Show less</a>
+      <div class='hoursWrapper'>
+        <div class="hoursBox">
+          <div class='hoursContent'>
+            <div class='hoursTitle'>
+              <ul class="select-options">
+                <% @place.google_data["opening_hours"]["weekday_text"].each do |daytime| %>
+                <li>
+                  <%= daytime %>
+                </li>
                 <% end %>
-              </div>
-            <% end %>
+              </ul>
+            </div>
+          </div>
         </div>
-
       </div>
-      <% end %>
+
+
+      <% @place.google_data["reviews"].each do |review| %>
+      <div class="review-card">
+        <%= image_tag "#{review['profile_photo_url']}", size: "40x40", alt: "review profile pic" %>
+        <div class="flex-item">
+          <p><strong><%= review["author_name"] %></strong></p>
+
+          <% blank_stars = 5 - review["rating"].to_i %>
+          <% review["rating"].to_i.times do  %>
+          <i class="fas fa-star filledstars"></i>
+          <% end %>
+          <% blank_stars.times do %>
+          <i class="far fa-star blankstars"></i>
+          <% end %>
+
+
+          <% content_text = review["text"] %>
+
+
+          <% if content_text %>
+          <div class="expandable">
+            <p class="text-intro"> <%= content_text.first(100) %> <span class="text-all" style="display:none;"> <%= content_text[99..-1]  %> </span>
+            </p>
+            <% if content_text[99] %>
+            <a class="text-show-more" href="#">Show more</a>
+            <a class="text-show-less" style="display:none;" href="#">Show less</a>
+            <% end %>
+          </div>
+          <% end %>
+        </div>
+      </div>
 
     </div>
+    <% end %>
+
   </div>
+</div>

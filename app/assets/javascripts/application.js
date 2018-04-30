@@ -114,7 +114,7 @@ const config = {
    * @param {HTMLElement} element Element.
    * @returns {number}
    */
-  throwOutConfidence: (xOffset, yOffset, element) => {
+   throwOutConfidence: (xOffset, yOffset, element) => {
     const xConfidence = Math.min(Math.abs(xOffset) / element.offsetWidth, 1);
     const yConfidence = Math.min(Math.abs(yOffset) / element.offsetHeight, 1);
 
@@ -131,27 +131,27 @@ const config = {
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    var stack;
+  var stack;
 
-    stack = window.swing.Stack(config);
+  stack = window.swing.Stack(config);
 
-    [].forEach.call(document.querySelectorAll('.tinder--card'), function (targetElement) {
-        stack.createCard(targetElement);
+  [].forEach.call(document.querySelectorAll('.tinder--card'), function (targetElement) {
+    stack.createCard(targetElement);
 
-        targetElement.classList.add('in-deck');
-    });
+    targetElement.classList.add('in-deck');
+  });
 
-    stack.on('throwout', function (e) {
-        console.log(e.target.innerText || e.target.textContent, 'has been thrown out of the stack to the', e.throwDirection, 'direction.');
+  stack.on('throwout', function (e) {
+    console.log(e.target.innerText || e.target.textContent, 'has been thrown out of the stack to the', e.throwDirection, 'direction.');
 
-        e.target.classList.remove('in-deck');
-    });
+    e.target.classList.remove('in-deck');
+  });
 
-    stack.on('throwin', function (e) {
-        console.log(e.target.innerText || e.target.textContent, 'has been thrown into the stack from the', e.throwDirection, 'direction.');
+  stack.on('throwin', function (e) {
+    console.log(e.target.innerText || e.target.textContent, 'has been thrown into the stack from the', e.throwDirection, 'direction.');
 
-        e.target.classList.add('in-deck');
-    });
+    e.target.classList.add('in-deck');
+  });
 
 
     // shw more:
@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', function () {
       showMore.show();
       button.hide();
     });
-});
+  });
 
 
 document.getElementById("tinder--card").addEventListener("click", link_to_index);
