@@ -13,22 +13,22 @@
  color: #999999;
 }
 
-.btn-secondary {
+.btn-search {
     background-color: #EE2B47;
     border: none;
     color: white;
     text-align: center;
     text-decoration: none;
     align-items: center;
-    display: flex;
-    font-size: 18px;
+    /* display: flex; */
+    font-size: 15px;
+    /* text-align: center; */
     font-weight: lighter;
-    width: 62px;
-    height: 30px;
+    max-width: 62px;
+    max-height: 30px;
     margin: 0 auto;
 }
-
-.btn-secondary:hover {
+.btn-search:hover {
  opacity: 1;
  text-decoration: bold;
  color: #999999;

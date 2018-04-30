@@ -1,21 +1,16 @@
- <div class="navbar-wagon">
+<div class="navbar-wagon">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-
-  <%= image_tag "logo_pink.png", class: "logo-navbar" %>
-
+    <%= image_tag "logo_pink.png", class: "logo-navbar" %>
   <% end %>
-
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <% if user_signed_in? %>
 
-     <!-- Links when logged I need to replace -->
-
-
-      <%= link_to image_tag("full_heart_icon.png"), "#", class: "favorites-navbar" %>
+      <!-- Links when logged I need to replace -->
+      <%= link_to image_tag("full_heart_icon.png"), "#", class: "favorites-navbar avatar" %>
 
       <!-- Avatar with dropdown menu I need to replace -->
       <div class="navbar-wagon-item">
@@ -23,8 +18,6 @@
 
           <% fb_url = current_user.facebook_picture_url || "icons_about_user.png" %>
           <%= image_tag fb_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-
-
 
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
@@ -43,11 +36,11 @@
               <% end %>
             </li>
           </ul>
-        </div>
+        </div> <!-- div class="dropdown" -->
+      </div> <!-- div class="navbar-wagon-item" -->
 
-      </div>
-    </div>
     <% else %>
+
     <!-- Login link (when logged out) -->
     <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
