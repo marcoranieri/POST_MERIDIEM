@@ -4,9 +4,10 @@
     <h2><%= @place.name.capitalize %></h2>
 
     -- <i class="fas fa-hand-holding-heart"></i> --> <em><small>
-      <%= link_to "match it", place_matches_path(@place, {:place => {:place_id =>  @place.id }}), :action => :create, :method => :post, class:"btn btn-primary" %></small></em>
 
-      <h3>Rating: <big><%= @place.google_data["rating"] %></big> <small>/ 5</small></h3>
+    <%= link_to "match it", place_matches_path(@place, {:place => {:place_id =>  @place.id }}), :action => :create, :method => :post, class:"btn btn-pm" %></small></em>
+    <%= link_to "back", places_path %>
+    <h3>Rating: <big><%= @place.google_data["rating"] %></big> <small>/ 5</small></h3>
 
 
 
@@ -23,13 +24,25 @@
 
       <%= link_to "Go to address", "https://www.google.com/maps/dir/?api=1&destination=#{URI::encode(@place.address)}", target: "_blank" %>
 
+    <h2><%= link_to "Like", user_matches_path(@place), method: :get %></h2>
+
 
       <a href="<%= "#{@place.website}" %>" target ="_blank"><p><%= @place.website%></p></a>
       <p><%#= @place.google_data["opening_hours"]["weekday_text"].each { |key, array| "#{key}" }%></p>
 
       <% if @place.google_data["photos"] != nil %>
       <% photo_reference = @place.google_data["photos"][0]["photo_reference"] %>
-      <% url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{photo_reference}&key=AIzaSyBSy-fahBAu25vH9WsuZuUd_jS2P6trgp8"  %>
+
+      <% url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{photo_reference}&key=AIzaSyBgvkz1otrXFV3sQgk5vgRjY_9VER152_4"  %>
+    <% end %>
+
+    <%= image_tag url, width: "100%" %>
+
+
+    <% if @place.google_data["reviews"] != nil %>
+      <% @place.google_data["reviews"].each do |review| %>
+        <p> <%= review["text"].gsub!(/[!@%&"]/,' ') %> </p>
+
       <% end %>
 
       <%= image_tag url, width: "100%" %>
@@ -51,7 +64,6 @@
           </div>
         </div>
       </div>
-
 
       <% @place.google_data["reviews"].each do |review| %>
       <div class="review-card">

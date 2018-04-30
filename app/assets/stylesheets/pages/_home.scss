@@ -1,1 +1,18 @@
 // Specific CSS for your home-page
+
+.home-wrapper {
+  background: lightblue;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  h1 {
+    margin-bottom: 27px;
+    font-size: 2.5em;
+  }
+}
+
+.up-down-margin {
+  margin: 20px 0;
+}
+

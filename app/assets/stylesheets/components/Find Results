@@ -1,0 +1,160 @@
+Searching 160 files for "nope"
+
+/Users/macbookpro/code/soniakeredine/POST_MERIDIEM/app/assets/javascripts/card.js:
+    2  var tinderContainer = document.querySelector('.tinder');
+    3  var allCards = document.querySelectorAll('.tinder--card');
+    4: var nope = document.getElementById('nope');
+    5  var love = document.getElementById('love');
+    6  function initCards(card, index) {
+    .
+   23      if (event.center.x === 0 && event.center.y === 0) return;
+   24      tinderContainer.classList.toggle('tinder_love', event.deltaX > 0);
+   25:     tinderContainer.classList.toggle('tinder_nope', event.deltaX < 0);
+   26      var xMulti = event.deltaX * 0.03;
+   27      var yMulti = event.deltaY / 80;
+   ..
+   32      el.classList.remove('moving');
+   33      tinderContainer.classList.remove('tinder_love');
+   34:     tinderContainer.classList.remove('tinder_nope');
+   35      var moveOutWidth = document.body.clientWidth;
+   36      var keep = Math.abs(event.deltaX) < 80 || Math.abs(event.velocityX) < 0.5;
+   ..
+   88  }
+   89  document.addEventListener('DOMContentLoaded', function () {
+   90:   var nopeListener = createButtonListener(false);
+   91    var loveListener = createButtonListener(true);
+   92:   nope.addEventListener('click', nopeListener);
+   93    love.addEventListener('click', loveListener);
+   94  });
+
+/Users/macbookpro/code/soniakeredine/POST_MERIDIEM/app/assets/stylesheets/components/_card.scss:
+   44    transform: scale(1);
+   45  }
+   46: .tinder_nope .fa-remove {
+   47    opacity: 0.7;
+   48    transform: scale(1);
+
+/Users/macbookpro/code/soniakeredine/POST_MERIDIEM/app/views/shared/_cards.html.erb:
+   38
+   39    <div class="tinder--buttons">
+   40:     <button id="nope"><i class="fa fa-remove"></i></button>
+   41      <button id="love"><i class="fa fa-heart"></i></button>
+   42    </div>
+
+9 matches across 3 files
+
+
+Searching 160 files for "AIzaSyBSy-fahBAu25vH9WsuZuUd_jS2P6trgp8 "
+
+0 matches
+
+Searching 160 files for "AIzaSyBSy-fahBAu25vH9WsuZuUd_jS2P6trgp8"
+
+/Users/macbookpro/code/soniakeredine/POST_MERIDIEM/app/views/matches/user_matches.html.erb:
+   12
+   13    <% photo_reference =  single_match.place.google_data["photos"][0]["photo_reference"] %>
+   14:   <% url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{photo_reference}&key=AIzaSyBSy-fahBAu25vH9WsuZuUd_jS2P6trgp8" %>
+   15    <%= image_tag url %>
+   16
+
+/Users/macbookpro/code/soniakeredine/POST_MERIDIEM/db/seeds.rb:
+   69
+   70  # # # Photo LINK
+   71: # https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=PHOTO-REFERENCE-HERE&key=AIzaSyBSy-fahBAu25vH9WsuZuUd_jS2P6trgp8
+   72: # https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=PHOTO-REFERENCE-HERE&key=AIzaSyBSy-fahBAu25vH9WsuZuUd_jS2P6trgp8
+   73: # https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=PHOTO-REFERENCE-HERE&key=AIzaSyBSy-fahBAu25vH9WsuZuUd_jS2P6trgp8
+   74: # https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=PHOTO-REFERENCE-HERE&key=AIzaSyBSy-fahBAu25vH9WsuZuUd_jS2P6trgp8
+   75: # https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=PHOTO-REFERENCE-HERE&key=AIzaSyBSy-fahBAu25vH9WsuZuUd_jS2P6trgp8
+   76
+   77    # ---> Searching reviews ( array of hashes)
+   ..
+   79
+   80  # # # Photo LINK
+   81: # https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=PHOTO-REFERENCE-HERE&key=AIzaSyBSy-fahBAu25vH9WsuZuUd_jS2P6trgp8
+   82
+   83    # ---> Searching reviews ( array of hashes)
+
+7 matches across 2 files
+
+
+Searching 160 files for "AIzaSyBSy-fahBAu25vH9WsuZuUd_jS2P6trgp8"
+
+/Users/macbookpro/code/soniakeredine/POST_MERIDIEM/app/views/matches/user_matches.html.erb:
+   12
+   13    <% photo_reference =  single_match.place.google_data["photos"][0]["photo_reference"] %>
+   14:   <% url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{photo_reference}&key=AIzaSyBSy-fahBAu25vH9WsuZuUd_jS2P6trgp8 " %>
+   15    <%= image_tag url %>
+   16
+
+/Users/macbookpro/code/soniakeredine/POST_MERIDIEM/db/seeds.rb:
+   69
+   70  # # # Photo LINK
+   71: # https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=PHOTO-REFERENCE-HERE&key=AIzaSyBSy-fahBAu25vH9WsuZuUd_jS2P6trgp8
+   72: # https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=PHOTO-REFERENCE-HERE&key=AIzaSyBSy-fahBAu25vH9WsuZuUd_jS2P6trgp8
+   73: # https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=PHOTO-REFERENCE-HERE&key=AIzaSyBSy-fahBAu25vH9WsuZuUd_jS2P6trgp8
+   74: # https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=PHOTO-REFERENCE-HERE&key=AIzaSyBSy-fahBAu25vH9WsuZuUd_jS2P6trgp8
+   75: # https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=PHOTO-REFERENCE-HERE&key=AIzaSyBSy-fahBAu25vH9WsuZuUd_jS2P6trgp8
+   76
+   77    # ---> Searching reviews ( array of hashes)
+   ..
+   79
+   80  # # # Photo LINK
+   81: # https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=PHOTO-REFERENCE-HERE&key=AIzaSyBSy-fahBAu25vH9WsuZuUd_jS2P6trgp8
+   82
+   83    # ---> Searching reviews ( array of hashes)
+
+7 matches across 2 files
+
+
+Searching 160 files for "overflow"
+
+/Users/macbookpro/code/soniakeredine/POST_MERIDIEM/yarn-error.log:
+ 4192        postcss-pseudo-class-any-link "^4.0.0"
+ 4193        postcss-pseudoelements "^5.0.0"
+ 4194:       postcss-replace-overflow-wrap "^2.0.0"
+ 4195        postcss-selector-matches "^3.0.1"
+ 4196        postcss-selector-not "^3.0.1"
+ ....
+ 4481        postcss-value-parser "^3.0.1"
+ 4482
+ 4483:   postcss-replace-overflow-wrap@^2.0.0:
+ 4484      version "2.0.0"
+ 4485:     resolved "https://registry.yarnpkg.com/postcss-replace-overflow-wrap/-/postcss-replace-overflow-wrap-2.0.0.tgz#794db6faa54f8db100854392a93af45768b4e25b"
+ 4486      dependencies:
+ 4487        postcss "^6.0.1"
+
+/Users/macbookpro/code/soniakeredine/POST_MERIDIEM/yarn.lock:
+ 4158      postcss-pseudo-class-any-link "^4.0.0"
+ 4159      postcss-pseudoelements "^5.0.0"
+ 4160:     postcss-replace-overflow-wrap "^2.0.0"
+ 4161      postcss-selector-matches "^3.0.1"
+ 4162      postcss-selector-not "^3.0.1"
+ ....
+ 4447      postcss-value-parser "^3.0.1"
+ 4448
+ 4449: postcss-replace-overflow-wrap@^2.0.0:
+ 4450    version "2.0.0"
+ 4451:   resolved "https://registry.yarnpkg.com/postcss-replace-overflow-wrap/-/postcss-replace-overflow-wrap-2.0.0.tgz#794db6faa54f8db100854392a93af45768b4e25b"
+ 4452    dependencies:
+ 4453      postcss "^6.0.1"
+
+/Users/macbookpro/code/soniakeredine/POST_MERIDIEM/app/assets/stylesheets/components/_card.scss:
+    6  body {
+    7    background: #F6F6F6;
+    8:   overflow: hidden;
+    9    font-family: sans-serif;
+   10  }
+   ..
+   12    width: 100vw;
+   13    height: 100vh;
+   14:   overflow: hidden;
+   15    display: flex;
+   16    flex-direction: column;
+   ..
+   65    padding-bottom: 40px;
+   66    border-radius: 8px;
+   67:   overflow: hidden;
+   68    position: absolute;
+   69    will-change: transform;
+
+11 matches across 3 files

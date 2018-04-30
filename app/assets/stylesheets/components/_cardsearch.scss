@@ -1,4 +1,3 @@
-
 .wrapper-search {
     max-width: 1000px;
     margin: 50px auto;
@@ -13,6 +12,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 25px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 }
 .card-description {
     text-align: center;
@@ -22,15 +22,19 @@
     // right: -274px;
     h3 {
         font-size: 18px;
+        font-weight: bold;
+        margin: 3px auto;
      }
 }
 
 .info-card {
     flex-grow: 1;
     color: #34374C;
+    margin-left: -40px;
+    p {
+        font-size: 14px;
+    }
 }
-
-
 
 .triangle {
     z-index: 1;
@@ -41,51 +45,22 @@
     border-right: 100px solid transparent;
     border-top: 120px solid transparent;
 }
-.trapezium-restaurant {
+
+.trapezium {
  z-index: 1;
  width: 263px;
  height: 279px;
- background: url(https://static.standard.co.uk/s3fs-public/thumbnails/image/2018/04/04/11/pasta-main.jpg?w968h681) center center ;
  background-size: cover;
  position: absolute;
  top: 0;
- -webkit-clip-path: polygon(0% 0%, 0% 43%, 48% 43%, 100% 0%);
- clip-path: polygon(0% 0%, 0% 43%, 48% 43%, 100% 0%);
-}
-
-.trapezium-bar {
- z-index: 0;
- width: 263px;
- height: 279px;
- background: url(https://www.hanksitalianrestaurant.com/wp-content/uploads/2016/10/Hanks-Bar-Menu_Page_2-1024x967.png) center center;
- background-size: cover;
- position: absolute;
- top: 0;
- -webkit-clip-path: polygon(0% 0%, 0% 43%, 48% 43%, 100% 0%);
- clip-path: polygon(0% 0%, 0% 43%, 48% 43%, 100% 0%);
-}
-
-.trapezium-cafe {
- z-index: 1;
- width: 263px;
- height: 279px;
- background: url(https://static.standard.co.uk/s3fs-public/thumbnails/image/2018/04/04/11/pasta-main.jpg?w968h681) center center ;
- background-size: cover;
- position: absolute;
- top: 0;
- -webkit-clip-path: polygon(0% 0%, 0% 43%, 48% 43%, 100% 0%);
- clip-path: polygon(0% 0%, 0% 43%, 48% 43%, 100% 0%);
-}
-
-
-.info-card p{
-    font-size: 14px;
+ -webkit-clip-path: polygon(0% 0%, 0% 43%, 68% 43%, 100% 0%);
+ clip-path: polygon(0% 0%, 0% 43%, 68% 43%, 100% 0%);
 }
 
 @media only screen and (max-width: 700px) {
-    .trapezium-restaurant {
-        -webkit-clip-path: polygon(0% 0%, 0% 43%, 48% 43%, 75% 0%);
-        clip-path: polygon(0% 0%, 0% 43%, 48% 43%, 75% 0%);
+    .trapezium {
+        -webkit-clip-path: polygon(0% 0%, 0% 43%, 40% 43%, 58% 0%);
+        clip-path: polygon(0% 0%, 0% 43%, 45% 43%, 70% 0%);
     }
     .triangle {
         border-left: 210px solid #2C2E3E;
@@ -94,13 +69,32 @@
     }
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 500px) {
+    .trapezium {
+        -webkit-clip-path: polygon(0% 0%, 0% 43%, 34% 43%, 54% 0%);
+        clip-path: polygon(0% 0%, 0% 43%, 34% 43%, 54% 0%);
+    }
+    .info-card {
+        margin-left: -30px;
+    }
+    .triangle {
+        border-left: 160px solid #2C2E3E;
+        border-right: 0;
+        border-top: 120px solid transparent;
+    }
+}
+@media only screen and (max-width: 300px) {
     .card-search {
         display: block;
+        max-width: 300px;
     }
-    .trapezium-restaurant {
-        -webkit-clip-path: polygon(0% 0%, 0% 43%, 48% 43%, 75% 0%);
-        clip-path: polygon(0% 0%, 0% 43%, 48% 43%, 75% 0%);
+    .shapes {
+    }
+    .trapezium {
+        max-width: 300px;
+        max-height: 120px;
+        -webkit-clip-path: none;
+        clip-path: none;
     }
     .triangle {
         border-left: 210px solid #2C2E3E;
@@ -108,4 +102,3 @@
         border-top: 120px solid transparent;
     }
 }
-
