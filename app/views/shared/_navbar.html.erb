@@ -21,7 +21,10 @@
       <div class="navbar-wagon-item">
         <div class="dropdown">
 
-          <%= image_tag "icons_about_user.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <% fb_url = current_user.facebook_picture_url || "icons_about_user.png" %>
+          <%= image_tag fb_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+
+
 
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
