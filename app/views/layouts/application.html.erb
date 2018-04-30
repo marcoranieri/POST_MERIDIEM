@@ -12,8 +12,16 @@
 
   <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
 
+  <!-- Import GoogleFONT -->
+  <link href=“https://fonts.googleapis.com/css?family=Quicksand:400,700” rel=“stylesheet”>
+
   <!-- Import FONTAWESOME -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+
+  <!-- Import BOOTSTRAP -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+  <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
 
   <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -23,7 +31,7 @@
 </head>
 <body>
 
-  <%= render 'shared/navbar' %>
+  <%= render 'shared/navbar' unless @navbar %>
   <%= render 'shared/flashes' %>
   <%= yield %>
   <%= javascript_include_tag 'application' %>

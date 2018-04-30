@@ -4,7 +4,7 @@
     <h2><%= @place.name.capitalize %></h2>
 
     -- <i class="fas fa-hand-holding-heart"></i> --> <em><small>
-    <%= link_to "match it", place_matches_path(@place, {:place => {:place_id =>  @place.id }}), :action => :create, :method => :post, class:"btn btn-primary" %></small></em>
+    <%= link_to "match it", place_matches_path(@place, {:place => {:place_id =>  @place.id }}), :action => :create, :method => :post, class:"btn btn-pm" %></small></em>
     <%= link_to "back", places_path %>
     <h3>Rating: <big><%= @place.google_data["rating"] %></big> <small>/ 5</small></h3>
 
@@ -22,6 +22,8 @@
 <!--     <a href="<%= "#{@place.urlmaps}" %>" target ="_blank"><p>GO to MAPS - <i class="far fa-map"></i></p></a> -->
 
     <%= link_to "Go to address", "https://www.google.com/maps/dir/?api=1&destination=#{URI::encode(@place.address)}", target: "_blank" %>
+    
+    <h2><%= link_to "Like", user_matches_path(@place), method: :get %></h2>
 
 
     <a href="<%= "#{@place.website}" %>" target ="_blank"><p><%= @place.website%></p></a>
@@ -61,7 +63,7 @@
 
 
   <% if review["text"] != "" %>
-        <p style="margin-left: 20px;"> <%= review["text"].gsub!(/[^0-9A-Za-z]/, ' ').first(100) %> ... </p>
+        <p style="margin-left: 20px;"> <%= review["text"].gsub(/[!@%&"]/,' ').first(100) %> ... </p>
     <% end %>
         </div>
 
