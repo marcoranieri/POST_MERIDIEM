@@ -12,34 +12,39 @@
 
     <% if user_signed_in? %>
 
-    <!-- Links when logged I need to replace -->
+     <!-- Links when logged I need to replace -->
 
 
-    <%= link_to image_tag("full_heart_icon.png"), "#", class: "favorites-navbar" %>
+      <%= link_to image_tag("full_heart_icon.png"), "#", class: "favorites-navbar" %>
 
-    <!-- Avatar with dropdown menu I need to replace -->
-    <div class="navbar-wagon-item">
-      <div class="dropdown">
+      <!-- Avatar with dropdown menu I need to replace -->
+      <div class="navbar-wagon-item">
+        <div class="dropdown">
 
-        <%= image_tag "icons_about_user.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <% fb_url = current_user.facebook_picture_url || "icons_about_user.png" %>
+          <%= image_tag fb_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
 
-        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-          <li>
-            <%= link_to "#" do %>
-            <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to "#" do %>
-            <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to destroy_user_session_path, method: :delete do %>
-            <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
-            <% end %>
-          </li>
-        </ul>
+
+
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <li>
+              <%= link_to "#" do %>
+                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to "#" do %>
+                <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+
       </div>
     </div>
     <% else %>
