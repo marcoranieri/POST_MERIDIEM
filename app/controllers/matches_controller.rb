@@ -1,18 +1,16 @@
 class MatchesController < ApplicationController
 
-  def create
-    @place = Place.find(params[:place_id])
-    @match = Match.new(matches_params)
-    @match.user = current_user
-    @match.place = @place
-    user_id = current_user.id
+  skip_before_action :verify_authenticity_token
+  skip_before_action :authenticate_user!
 
-    @match.save
-    # if @match.save
-    #   redirect_to "/users/#{user_id}/matches"
-    # else
-    #   redirect_to "/places"
-    # end
+
+  def create
+
+   params.has_key?("username") ? user = params["username"].to_i : user = current_user.id
+     @match = Match.new(user_id: user, place_id: params["place_id"].to_i, status: params["status"])
+     @match.save
+
+    redirect_to places_url
   end
 
   def user_matches
@@ -44,7 +42,7 @@ class MatchesController < ApplicationController
   private
 
   def matches_params
-    params.require(:place).permit(:place_id)
+    params.require(:place).permit(:place_id, :status)
   end
 
 end
