@@ -54,15 +54,16 @@
 }
 
 .trapezium-bar {
- z-index: 0;
- width: 263px;
- height: 279px;
- background: url(https://www.hanksitalianrestaurant.com/wp-content/uploads/2016/10/Hanks-Bar-Menu_Page_2-1024x967.png) center center;
- background-size: cover;
- position: absolute;
- top: 0;
- -webkit-clip-path: polygon(0% 0%, 0% 43%, 48% 43%, 100% 0%);
- clip-path: polygon(0% 0%, 0% 43%, 48% 43%, 100% 0%);
+   z-index: 0;
+        width: 263px;
+    height: 279px;
+    background: url(https://www.hanksitalianrestaurant.com/wp-content/uploads/2016/10/Hanks-Bar-Menu_Page_2-1024x967.png) center center;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    -webkit-clip-path: polygon(0% 0%, 0% 43%, 48% 43%, 100% 0%);
+    clip-path: polygon(0% 0%, 0% 43%, 48% 43%, 100% 0%);
+
 }
 
 .trapezium-cafe {
@@ -75,6 +76,7 @@
  top: 0;
  -webkit-clip-path: polygon(0% 0%, 0% 43%, 48% 43%, 100% 0%);
  clip-path: polygon(0% 0%, 0% 43%, 48% 43%, 100% 0%);
+
 }
 
 
