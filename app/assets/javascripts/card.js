@@ -35,6 +35,7 @@ allCards.forEach(function (el) {
     var moveOutWidth = document.body.clientWidth;
     var keep = Math.abs(event.deltaX) < 80 || Math.abs(event.velocityX) < 0.5;
     event.target.classList.toggle('removed', !keep);
+
     if (keep) {
       event.target.style.transform = '';
     } else {
@@ -45,27 +46,38 @@ allCards.forEach(function (el) {
       var xMulti = event.deltaX * 0.03;
       var yMulti = event.deltaY / 80;
       var rotate = xMulti * yMulti;
-      if (event.deltaX > 0) {
-        console.log(event.target)
-      var thestring = event.target.querySelector('a').getAttribute("href");
-      var thenum = thestring.replace( /^\D+/g, '');
-        event.target.style.transform = 'translate(' + toX + 'px, ' + (toY + event.deltaY) + 'px) rotate(' + rotate + 'deg)';
-      console.log(thenum);
-        $.ajax({
-          url: '/places/'+ thenum +'/matches',
-          type: 'post',
-          data: { username: window.username, status: "yes"},
-        });
-      } else {
-        var thestring = event.target.querySelector('a').getAttribute("href");
-      var thenum = thestring.replace( /^\D+/g, '');
-        event.target.style.transform = 'translate(' + toX + 'px, ' + (toY + event.deltaY) + 'px) rotate(' + rotate + 'deg)';
-        $.ajax({
-          url: '/places/'+ thenum +'/matches',
-          type: 'post',
-          data: { username: window.username, status: "no"},
-        }); // ajax closing
-      }; // second else
+
+      var path = '';
+
+      setTimeout(function () {
+        var link = event.target.querySelector('a');
+
+        if (link)  {
+            console.log(link);
+            path = link.getAttribute("href");
+            var thenum = path.replace( /^\D+/g, '');
+            event.target.style.transform = 'translate(' + toX + 'px, ' + (toY + event.deltaY) + 'px) rotate(' + rotate + 'deg)';
+
+              if (event.deltaX > 0) {
+                $.ajax({
+                  url: '/places/'+ thenum +'/matches',
+                  type: 'post',
+                  data: { username: window.username, status: "yes"},
+                });
+              } else {
+                $.ajax({
+                  url: '/places/'+ thenum +'/matches',
+                  type: 'post',
+                  data: { username: window.username, status: "no"},
+                }); // ajax closing
+              }; // second else
+
+
+        }
+
+      }, 500);
+
+
     }; // first else
     initCards();
   });
@@ -86,9 +98,9 @@ function createButtonListener(love) {
     event.preventDefault();
   };
 }
-document.addEventListener('DOMContentLoaded', function () {
-  var nopeListener = createButtonListener(false);
-  var loveListener = createButtonListener(true);
-  nope.addEventListener('click', nopeListener);
-  love.addEventListener('click', loveListener);
-});
+// document.addEventListener('DOMContentLoaded', function () {
+//   var nopeListener = createButtonListener(false);
+//   var loveListener = createButtonListener(true);
+//   nope.addEventListener('click', nopeListener);
+//   love.addEventListener('click', loveListener);
+// });
