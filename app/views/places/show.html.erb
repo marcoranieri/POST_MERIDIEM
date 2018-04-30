@@ -3,16 +3,11 @@
   <div id="place-title">
     <h2><%= @place.name.capitalize %></h2>
 
-    -- <i class="fas fa-hand-holding-heart"></i> --> <em><small>
+     <i class="fas fa-hand-holding-heart"></i>  <em><small>
 
     <%= link_to "match it", place_matches_path(@place, {:place => {:place_id =>  @place.id }}), :action => :create, :method => :post, class:"btn btn-pm" %></small></em>
     <%= link_to "back", places_path %>
     <h3>Rating: <big><%= @place.google_data["rating"] %></big> <small>/ 5</small></h3>
-
-
-
-    </div>
-
   </div>
 
   <div id="info-description">
@@ -26,26 +21,16 @@
 
     <h2><%= link_to "Like", user_matches_path(@place), method: :get %></h2>
 
+    <a href="<%= "#{@place.website}" %>" target ="_blank"><p><%= @place.website%></p></a>
 
-      <a href="<%= "#{@place.website}" %>" target ="_blank"><p><%= @place.website%></p></a>
-      <p><%#= @place.google_data["opening_hours"]["weekday_text"].each { |key, array| "#{key}" }%></p>
-
-      <% if @place.google_data["photos"] != nil %>
+    <% if @place.google_data["photos"] != nil %>
       <% photo_reference = @place.google_data["photos"][0]["photo_reference"] %>
 
       <% url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{photo_reference}&key=AIzaSyBgvkz1otrXFV3sQgk5vgRjY_9VER152_4"  %>
+    <%= image_tag url, width: "100%" %>
     <% end %>
 
-    <%= image_tag url, width: "100%" %>
 
-
-    <% if @place.google_data["reviews"] != nil %>
-      <% @place.google_data["reviews"].each do |review| %>
-        <p> <%= review["text"].gsub!(/[!@%&"]/,' ') %> </p>
-
-      <% end %>
-
-      <%= image_tag url, width: "100%" %>
 
 
 
@@ -65,18 +50,18 @@
         </div>
       </div>
 
-      <% @place.google_data["reviews"].each do |review| %>
+      <% (@place.google_data["reviews"] || []).each do |review| %>
       <div class="review-card">
-        <%= image_tag "#{review['profile_photo_url']}", size: "40x40", alt: "review profile pic" %>
+        <%= image_tag review['profile_photo_url'], size: "40x40", alt: "review profile pic" %>
         <div class="flex-item">
           <p><strong><%= review["author_name"] %></strong></p>
 
           <% blank_stars = 5 - review["rating"].to_i %>
           <% review["rating"].to_i.times do  %>
-          <i class="fas fa-star filledstars"></i>
+            <i class="fas fa-star filledstars"></i>
           <% end %>
           <% blank_stars.times do %>
-          <i class="far fa-star blankstars"></i>
+            <i class="far fa-star blankstars"></i>
           <% end %>
 
 
@@ -88,16 +73,17 @@
             <p class="text-intro"> <%= content_text.first(100) %> <span class="text-all" style="display:none;"> <%= content_text[99..-1]  %> </span>
             </p>
             <% if content_text[99] %>
-            <a class="text-show-more" href="#">Show more</a>
-            <a class="text-show-less" style="display:none;" href="#">Show less</a>
+              <a class="text-show-more" href="#">Show more</a>
+              <a class="text-show-less" style="display:none;" href="#">Show less</a>
             <% end %>
           </div>
           <% end %>
+
+
         </div>
       </div>
+      <% end %>
 
     </div>
-    <% end %>
-
   </div>
 </div>
