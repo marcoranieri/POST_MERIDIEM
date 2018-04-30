@@ -27,6 +27,7 @@ gem 'google-maps'
 gem 'geocoder'
 gem 'pry'
 gem 'hammerjs-rails'
+gem 'angularjs-rails', '~> 1.5', '>= 1.5.6'
 
 
 group :development do

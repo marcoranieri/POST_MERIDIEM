@@ -1,7 +1,6 @@
+//= require touch-emulator
 //= require rails-ujs
 //= require_tree .
-// require hammer.min
-
 
 // 'use strict';
 
@@ -131,28 +130,28 @@ const config = {
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    var stack;
+    // var stack;
 
-    stack = window.swing.Stack(config);
+    // stack = window.swing.Stack(config);
 
-    [].forEach.call(document.querySelectorAll('.tinder--card'), function (targetElement) {
-        stack.createCard(targetElement);
+    // [].forEach.call(document.querySelectorAll('.tinder--card'), function (targetElement) {
+    //     stack.createCard(targetElement);
 
-        targetElement.classList.add('in-deck');
-    });
+    //     targetElement.classList.add('in-deck');
+    // });
 
-    stack.on('throwout', function (e) {
-        console.log(e.target.innerText || e.target.textContent, 'has been thrown out of the stack to the', e.throwDirection, 'direction.');
+    // stack.on('throwout', function (e) {
+    //     console.log(e.target.innerText || e.target.textContent, 'has been thrown out of the stack to the', e.throwDirection, 'direction.');
 
-        e.target.classList.remove('in-deck');
-    });
+    //     e.target.classList.remove('in-deck');
+    // });
 
-    stack.on('throwin', function (e) {
-        console.log(e.target.innerText || e.target.textContent, 'has been thrown into the stack from the', e.throwDirection, 'direction.');
+    // stack.on('throwin', function (e) {
+    //     console.log(e.target.innerText || e.target.textContent, 'has been thrown into the stack from the', e.throwDirection, 'direction.');
 
-        e.target.classList.add('in-deck');
-    });
+    //     e.target.classList.add('in-deck');
+    // });
 });
 
 
-document.getElementById("tinder--card").addEventListener("click", link_to_index);
+// document.getElementById("tinder--card").addEventListener("click", link_to_index);
