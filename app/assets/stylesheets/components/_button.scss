@@ -1,37 +1,17 @@
-.btn-primary {
-   background-color:#EE2B47;
-   border-radius: 10px;
-   border: none;
-   color: white;
-   padding: 10px 20px;
-   text-align: center;
-   text-decoration: none;
-   display: inline-block;
-   font-size: 16px;
-   font-weight: lighter;
 
+.button-home {
+    background: purple;
+    padding: 10px 15px;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
 }
 
-.btn-primary:hover {
+.btn-pm:hover {
  opacity: 1;
  text-decoration: bold;
  color: #999999;
 }
-
-// .btn-secondary {
-//    background-color: #EE2B47;
-//     border: none;
-//     color: white;
-//     text-align: center;
-//     text-decoration: none;
-//     display: inline-block;
-//     font-size: 10px;
-//     font-weight: lighter;
-//     position: absolute;
-//    right: 48px;
-//     top: 76px;
-
-// }
 
 .btn-secondary {
     background-color: #EE2B47;

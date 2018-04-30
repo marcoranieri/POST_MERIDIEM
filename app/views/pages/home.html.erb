@@ -1,26 +1,37 @@
-<h1 class="text-center">- Landing Page -</h1>
+<div class="home-wrapper">
+  <div class="home-content">
+  <div id="logo" class="text-center">
+    <%= image_tag("logo_pink.png",
+    alt: "Post Meridiem Logo") %>
+  </div>
 
-<p class="text-center">
-  This page is aviable also for not logged user!
-</p>
+  <h1 class="text-center">
+    your perfect evening<br>
+    just around the corner
+  </h1>
 
-<p class="text-center">
-  Here we display general info (what we propose and the pourpose) and login stuff
-</p>
 
-<ul class="text-center">
-  <li class="btn btn-danger">sign in</li>
-  <li class="btn btn-info">log in</li>
-  <li class="btn btn-primary">log in with facebook</li>
-</ul>
 
-<p class="text-center">
-  <em>Hi, we are post-meridiem and we want to give all the info bla bla bla</em>
-</p>
 
-<br>
-<br>
 
-<div class="btn btn-warning" style="width: 100%;">
-  <%= link_to "SEARCH", load_path %>
+  <div class="container">
+    <div class="row up-down-margin">
+      <div class="col-xs-8 col-xs-offset-2">
+        <div class="row row-first">
+          <%= link_to "LOG IN", new_user_session_path, class: "button-home col-xs-6" %>
+          <%= link_to "SIGN UP", new_user_registration_path, class: "button-home col-xs-6" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <%= link_to "FACEBOOK", new_user_session_path, class: "button-home col-xs-8 col-xs-offset-2" %>
+    </div>
+  </div>
+
+
+  <!-- <div class="btn btn-warning" style="width: 100%;">
+    <%#= link_to "SEARCH", load_path %>
+  </div> -->
+  </div>
 </div>
