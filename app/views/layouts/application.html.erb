@@ -32,9 +32,10 @@
 
 
 <script>
- window.username = <%= current_user.id  %>
-
- </script>
+  <% if current_user  %>
+  window.username = <%= current_user.id  %>
+  <% end %>
+</script>
 
 
 

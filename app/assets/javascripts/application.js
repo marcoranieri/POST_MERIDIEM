@@ -48,17 +48,25 @@ document.addEventListener('DOMContentLoaded', function () {
     var thenum = thestring.replace( /^\D+/g, '');
     console.log(thenum);
 
-  $.ajax({
-    url: '/places/'+ thenum +'/matches',
-    type: 'post',
-    data: { username: window.username},
-  });
 
   var test = e.throwDirection.toString();
   console.log(test);
+
   if (test === "Symbol(RIGHT)") {
     alert("match it!");
-  };
+    $.ajax({
+      url: '/places/'+ thenum +'/matches',
+      type: 'post',
+      data: { username: window.username, status: "yes"},
+    });
+
+  } else {
+    $.ajax({
+      url: '/places/'+ thenum +'/matches',
+      type: 'post',
+      data: { username: window.username, status: "no"},
+    });
+  }
 
 });
   stack.on('throwin', function (e) {

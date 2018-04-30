@@ -1,26 +1,20 @@
 <div class="tinder">
 
-
-
   <div class="tinder--cards">
     <% @places.each do |place|  %>
+      <% if place.google_data["opening_hours"] %>
+        <% if place.google_data["opening_hours"]["open_now"] %>
 
+          <div class="tinder--card">
+            <%= link_to place_path(place) do %>
+              <% if place.google_data["photos"] != nil %>
+                <% photo_reference = place.google_data["photos"][0]["photo_reference"] %>
+                <% url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{photo_reference}&key=AIzaSyBcp8Akff_wtFaa3hLNhsfJk6CGftSdNng"  %>
 
+                <%= image_tag url %>
 
-    <% if place.google_data["opening_hours"] %>
-    <% if place.google_data["opening_hours"]["open_now"] %>
-
-    <div class="tinder--card">
-
-      <%= link_to place_path(place) do %>
-      <% if place.google_data["photos"] != nil %>
-      <% photo_reference = place.google_data["photos"][0]["photo_reference"] %>
-      <% url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{photo_reference}&key=AIzaSyBcp8Akff_wtFaa3hLNhsfJk6CGftSdNng"  %>
-
-      <%= image_tag url %>
-
-    <% end %>
-    <span>Like</span>
+               <% end %> <%# END of IF  %>
+            <% end %> <%# END of LINK_TO  %>
 
             <h3>
               <%= link_to place.name, place_path(place)  %>
@@ -33,27 +27,14 @@
             </p>
           </div>
 
+      <%= link_to "match it", place_matches_path(place, {:place => {:place_id =>  place.id }}), :action => :create, :method => :post %>
+      <i class="fas fa-hand-holding-heart"></i>
+    </p>
 
-      <span>Like</span>
+  <% end %> <%# END of ["opening_hours"] %>
+  <% end %> <%# END of ["opening_hours"]["open_now"] %>
+  <% end %> <%# END of @places.each do |place| %>
 
-      <h3>
-        <%= link_to place.name, place_path(place)  %>
-      </h3>
+  </div>
 
-      <p>places.address</p>
-      <p>
-      <% end %>
-
-       <%= link_to "match it", place_matches_path(place, {:place => {:place_id =>  place.id }}), :action => :create, :method => :post %>
-       <i class="fas fa-hand-holding-heart"></i>
-     </p>
-   </div>
-
-   <% end %>
-   <% end %>
-
-   <% end %>
- </div>
-
-
-
+</div>
