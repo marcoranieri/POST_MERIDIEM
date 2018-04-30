@@ -1,19 +1,23 @@
+.btn-primary {
+   background-color:#EE2B47;
+   border-radius: 10px;
+   border: none;
+   color: white;
+   padding: 10px 20px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+   font-weight: lighter;
 
-.button-home {
-    background: purple;
-    padding: 10px 15px;
-    border-radius: 4px;
-    color: white;
-    font-weight: bold;
 }
 
-.btn-pm:hover {
+.btn-primary:hover {
  opacity: 1;
  text-decoration: bold;
  color: #999999;
 }
-
-.btn-search {
+.btn-secondary {
     background-color: #EE2B47;
     border: none;
     color: white;
@@ -28,7 +32,8 @@
     max-height: 30px;
     margin: 0 auto;
 }
-.btn-search:hover {
+
+.btn-secondary:hover {
  opacity: 1;
  text-decoration: bold;
  color: #999999;
