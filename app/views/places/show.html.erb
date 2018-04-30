@@ -61,7 +61,7 @@
 
 
   <% if review["text"] != "" %>
-        <p style="margin-left: 20px;"> <%= review["text"].gsub!(/[^0-9A-Za-z]/, ' ').first(100) %> ... </p>
+        <p style="margin-left: 20px;"> <%= review["text"].gsub(/[!@%&"]/,' ').first(100) %> ... </p>
     <% end %>
         </div>
 
