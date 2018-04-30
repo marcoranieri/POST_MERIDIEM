@@ -1,34 +1,32 @@
 
-.wrapper{
+.wrapper-search {
     max-width: 1000px;
     margin: 50px auto;
-    display:flex;
-    flex-direction: column;
 }
 
-
-
-.card {
-    flex: 0 1 auto;
-    margin: 10px;
-    border-radius: 1px;
-    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-    background-color: #F6F6F6;
-
+.shapes {
+    position: relative;
 }
-.card-description h3{
-  z-index: 1000;
-    position: absolute;
-       bottom: -207px;
-    right: -274px;
-    font-size: 18px;
 
+.card-search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+.card-description {
+    text-align: center;
+    z-index: 1000;
+    // position: absolute;
+    // bottom: -207px;
+    // right: -274px;
+    h3 {
+        font-size: 18px;
+     }
 }
 
 .info-card {
-    display:flex;
-    flex-direction: column;
+    flex-grow: 1;
     color: #34374C;
 }
 
@@ -43,32 +41,71 @@
     border-right: 100px solid transparent;
     border-top: 120px solid transparent;
 }
-.trapezium {
-   z-index: 1;
-        width: 263px;
-    height: 279px;
-    background: url(https://static.standard.co.uk/s3fs-public/thumbnails/image/2018/04/04/11/pasta-main.jpg?w968h681) center center ;
-    background-size: cover;
-    position: absolute;
-    top: 0;
-    -webkit-clip-path: polygon(0% 0%, 0% 43%, 48% 43%, 100% 0%);
-    clip-path: polygon(0% 0%, 0% 43%, 48% 43%, 100% 0%);
+.trapezium-restaurant {
+ z-index: 1;
+ width: 263px;
+ height: 279px;
+ background: url(https://static.standard.co.uk/s3fs-public/thumbnails/image/2018/04/04/11/pasta-main.jpg?w968h681) center center ;
+ background-size: cover;
+ position: absolute;
+ top: 0;
+ -webkit-clip-path: polygon(0% 0%, 0% 43%, 48% 43%, 100% 0%);
+ clip-path: polygon(0% 0%, 0% 43%, 48% 43%, 100% 0%);
 }
 
 .trapezium-bar {
-   z-index: 0;
-        width: 263px;
-    height: 279px;
-    background: url(https://www.hanksitalianrestaurant.com/wp-content/uploads/2016/10/Hanks-Bar-Menu_Page_2-1024x967.png) center center;
-    background-size: cover;
-    position: absolute;
-    top: 0;
-    -webkit-clip-path: polygon(0% 0%, 0% 43%, 48% 43%, 100% 0%);
-    clip-path: polygon(0% 0%, 0% 43%, 48% 43%, 100% 0%);
+ z-index: 0;
+ width: 263px;
+ height: 279px;
+ background: url(https://www.hanksitalianrestaurant.com/wp-content/uploads/2016/10/Hanks-Bar-Menu_Page_2-1024x967.png) center center;
+ background-size: cover;
+ position: absolute;
+ top: 0;
+ -webkit-clip-path: polygon(0% 0%, 0% 43%, 48% 43%, 100% 0%);
+ clip-path: polygon(0% 0%, 0% 43%, 48% 43%, 100% 0%);
 }
+
+.trapezium-cafe {
+ z-index: 1;
+ width: 263px;
+ height: 279px;
+ background: url(https://static.standard.co.uk/s3fs-public/thumbnails/image/2018/04/04/11/pasta-main.jpg?w968h681) center center ;
+ background-size: cover;
+ position: absolute;
+ top: 0;
+ -webkit-clip-path: polygon(0% 0%, 0% 43%, 48% 43%, 100% 0%);
+ clip-path: polygon(0% 0%, 0% 43%, 48% 43%, 100% 0%);
+}
+
 
 .info-card p{
     font-size: 14px;
 }
 
+@media only screen and (max-width: 700px) {
+    .trapezium-restaurant {
+        -webkit-clip-path: polygon(0% 0%, 0% 43%, 48% 43%, 75% 0%);
+        clip-path: polygon(0% 0%, 0% 43%, 48% 43%, 75% 0%);
+    }
+    .triangle {
+        border-left: 210px solid #2C2E3E;
+        border-right: 0;
+        border-top: 120px solid transparent;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .card-search {
+        display: block;
+    }
+    .trapezium-restaurant {
+        -webkit-clip-path: polygon(0% 0%, 0% 43%, 48% 43%, 75% 0%);
+        clip-path: polygon(0% 0%, 0% 43%, 48% 43%, 75% 0%);
+    }
+    .triangle {
+        border-left: 210px solid #2C2E3E;
+        border-right: 0;
+        border-top: 120px solid transparent;
+    }
+}
 
