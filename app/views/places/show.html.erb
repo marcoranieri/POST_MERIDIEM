@@ -5,7 +5,7 @@
 
     -- <i class="fas fa-hand-holding-heart"></i> --> <em><small>
     <%= link_to "match it", place_matches_path(@place, {:place => {:place_id =>  @place.id }}), :action => :create, :method => :post, class:"btn btn-primary" %></small></em>
-
+    <%= link_to "back", places_path %>
     <h3>Rating: <big><%= @place.google_data["rating"] %></big> <small>/ 5</small></h3>
 
 

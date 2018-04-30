@@ -27,6 +27,7 @@ gem 'google-maps'
 gem 'geocoder'
 gem 'pry'
 gem 'hammerjs-rails'
+gem 'gon'
 
 
 group :development do
