@@ -152,6 +152,32 @@ document.addEventListener('DOMContentLoaded', function () {
 
         e.target.classList.add('in-deck');
     });
+
+
+    // shw more:
+    $('.expandable .text-show-more').click(function (e) {
+      e.preventDefault();
+
+      var button = $(e.currentTarget);
+      var all = button.parent().find(".text-all");
+      var showLess = button.parent().find(".text-show-less");
+
+      all.show();
+      showLess.show();
+      button.hide();
+    });
+
+    $('.expandable .text-show-less').click(function (e) {
+      e.preventDefault();
+
+      var button = $(e.currentTarget);
+      var all = button.parent().find(".text-all");
+      var showMore = button.parent().find(".text-show-more");
+
+      all.hide();
+      showMore.show();
+      button.hide();
+    });
 });
 
 
