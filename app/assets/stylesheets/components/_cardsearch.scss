@@ -13,6 +13,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 25px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 }
 .card-description {
     text-align: center;
@@ -43,9 +44,9 @@
 }
 .trapezium-restaurant {
  z-index: 1;
- width: 263px;
+ width: 353px;
  height: 279px;
- background: url(https://static.standard.co.uk/s3fs-public/thumbnails/image/2018/04/04/11/pasta-main.jpg?w968h681) center center ;
+ background: url(https://image.freepik.com/free-photo/mixed-raw-pasta-on-black-background_2353-54.jpg) center center ;
  background-size: cover;
  position: absolute;
  top: 0;
@@ -57,7 +58,7 @@
  z-index: 0;
  width: 263px;
  height: 279px;
- background: url(https://www.hanksitalianrestaurant.com/wp-content/uploads/2016/10/Hanks-Bar-Menu_Page_2-1024x967.png) center center;
+ background: url(https://s3.envato.com/files/207298653/Pouring%20Beer%20on%20Black%20Background%202-preview.jpg) center center;
  background-size: cover;
  position: absolute;
  top: 0;
@@ -69,7 +70,7 @@
  z-index: 1;
  width: 263px;
  height: 279px;
- background: url(https://static.standard.co.uk/s3fs-public/thumbnails/image/2018/04/04/11/pasta-main.jpg?w968h681) center center ;
+ background: url(https://cdn4.eyeem.com/thumb/d7f6a596d75ec698393952ad654532d7950c2c54-1481364148047/w/650) center center ;
  background-size: cover;
  position: absolute;
  top: 0;
