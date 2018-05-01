@@ -5,7 +5,7 @@ require 'google-maps'
 require 'geocoder'
 require 'pry'
 
-Geokit::Geocoders::GoogleGeocoder.api_key = Place::GOOGLE_API_KEY
+Geokit::Geocoders::GoogleGeocoder.api_key = ENV['google_geocoding_key_seeds']
 
 # RESET SEEDS ---------
 Match.destroy_all
@@ -14,7 +14,8 @@ Match.destroy_all
 
 User.create(email:"test@test.com", password: "test@test.com")
 
-client = GooglePlaces::Client.new(Place::GOOGLE_API_KEY)
+
+client = GooglePlaces::Client.new(ENV['google_places_key_seeds'])
 
 puts "Type the restraurant"
 restaurant = "restaurant|bar|cafe"

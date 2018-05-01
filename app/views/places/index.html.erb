@@ -7,8 +7,6 @@
     <% if place.google_data["photos"][0]  %>
 
 
-    <script>console.log(<%= place.google_data.to_json.html_safe %>)</script>
-
     <div class="tinder--card">
       <%= link_to place_path(place) do %>
       <% if place.google_data["photos"].size > 1 %>
@@ -57,7 +55,6 @@
     <% end %> <%# END of ["opening_hours"] %>
     <% end %> <%# END of ["opening_hours"]["open_now"] %>
     <% end %> <%# END of @places.each do |place| %>
-
   </div>
 
 </div>

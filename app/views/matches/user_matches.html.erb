@@ -1,32 +1,28 @@
-<div class="banner">
-    <div class="row">
-        <div class="rectangle-text"><h1>Hello <%= current_user.email.split("@")[0] %>! Here your matches</h1>
-        </div>
-    </div>
+<div><h1>Hello <%= current_user.email.split("@")[0]%> ! Here are your matches</h1>
 </div>
 
 <div class="card-matches">
-
-<% @user_matches.each do |single_match| %>
-  <br>
-
+    <% @user_matches.each do |single_match| %>
   <% if single_match.place.google_data["photos"][0] %>
-    <% photo_reference =  single_match.place.google_data["photos"][0]["photo_reference"] %>
-    <% url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{photo_reference}&key=#{Place::GOOGLE_API_KEY}" %>
 
-    <%= image_tag url %>
-  <% end %>
+     <% photo_reference =  single_match.place.google_data["photos"][0]["photo_reference"] %>
+     <% url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{photo_reference}&key=#{ENV['google_maps_key']}" %>
+    <div class ="main-card-matches" style="background: url(<%= asset_url url %>) no-repeat;">
+        <div class="card-banner-match">
+                        <h3 class="card-category"><%= single_match.place.name %></h3>
+                        <p>People who liked it:	<%= single_match.place.matches.count %> </p>
+                        <div class="btn btn-danger btn-sm" > <%= link_to "Unmatch", match_path(single_match), method: :delete  %>
+                        </div>
+        </div>
+    </div>
 
-  <h3>People who liked it:	<%= single_match.place.matches.count %> </h3>
+    <% end %>
+    <% end %>
 
 
-
-  <%= single_match.place.name %>
-  <div class="btn btn-danger btn-sm">
-    <%= link_to "kill it", match_path(single_match), method: :delete  %>
-  </div>
-  <br>
-<% end %>
 </div>
 </div>
+
+
+
 

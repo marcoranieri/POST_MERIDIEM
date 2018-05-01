@@ -1,37 +1,50 @@
-<div class="home-wrapper">
-  <div class="home-content">
-  <div id="logo" class="text-center">
-    <%= image_tag("logo_pink.png",
-    alt: "Post Meridiem Logo") %>
+<div class="video-back">
+  <video playsinline autoplay muted loop poster="https://previews.123rf.com/images/markpayne/markpayne1002/markpayne100200010/6480600-sandy-coarse-grey-grit-grunge-rough-texture-background-or-wall-paper-also-looks-like-static-or-tv-si.jpg" id="doge">
+    <source src="https://www.videvo.net/videvo_files/converted/2014_03/preview/Beer_Bubbles_300314__Videvo.mov34510.webm" type="video/webm">
+    </video>
   </div>
 
-  <h1 class="text-center">
-    your perfect evening<br>
-    just around the corner
-  </h1>
-
-
-
-
-
-  <div class="container">
-    <div class="row up-down-margin">
-      <div class="col-xs-8 col-xs-offset-2">
-        <div class="row row-first">
-          <%= link_to "LOG IN", new_user_session_path, class: "button-home col-xs-6" %>
-          <%= link_to "SIGN UP", new_user_registration_path, class: "button-home col-xs-6" %>
-        </div>
+  <div class="home-wrapper">
+    <div class="home-content">
+      <div id="logo" class="text-center">
+        <%= image_tag("Logo pink-1.png",
+        alt: "Post Meridiem Logo") %>
       </div>
-    </div>
 
-    <div class="row">
-      <%= link_to "FACEBOOK", new_user_session_path, class: "button-home col-xs-8 col-xs-offset-2" %>
-    </div>
-  </div>
+      <h1 class="text-center">
+        your perfect evening<br>
+        just around the corner
+      </h1>
+
+      <div class="container">
+        <div class="row up-down-margin">
+          <div class="col-xs-8 col-xs-offset-2">
+            <div class="row row-first">
+              <%= link_to "LOG IN", new_user_session_path, class: "btn-danger btn-md" %>
+
+              <%= link_to "SIGN UP", new_user_registration_path, class: "btn-danger btn-md" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+
+
+          <%= link_to new_user_session_path, class: "facebookLoginBtnMain xLargeFacebookBtn" do %>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 216 216" class="_55a2"><path fill="white" d="
+            M204.1 0H11.9C5.3 0 0 5.3 0 11.9v192.2c0 6.6 5.3 11.9 11.9
+            11.9h103.5v-83.6H87.2V99.8h28.1v-24c0-27.9 17-43.1 41.9-43.1
+            11.9 0 22.2.9 25.2 1.3v29.2h-17.3c-13.5 0-16.2 6.4-16.2
+            15.9v20.8h32.3l-4.2 32.6h-28V216h55c6.6 0 11.9-5.3
+            11.9-11.9V11.9C216 5.3 210.7 0 204.1 0z"></path></svg>
+            <span>Continue with Facebook</span>
+            <% end  %>
+          </div>
+        </div>
 
 
   <!-- <div class="btn btn-warning" style="width: 100%;">
     <%#= link_to "SEARCH", load_path %>
   </div> -->
-  </div>
+</div>
 </div>

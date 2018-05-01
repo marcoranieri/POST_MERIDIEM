@@ -93,3 +93,19 @@
    height: 25px;
    width: 25px;
 }
+
+.badge {
+  padding: 0;
+  background: darkred;
+  position: relative;
+  top: -20px;
+  left: -20px;
+      min-width: 10px;
+    width: 15px;
+    height: 15px;
+    line-height: 15px;
+    border-radius: 50% !important;
+    font-size: 10px !important;
+    font-weight: lighter !important;
+    padding: 2px !important;
+}
