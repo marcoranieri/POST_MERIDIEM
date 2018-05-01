@@ -3,6 +3,7 @@ var tinderContainer = document.querySelector('.tinder');
 var allCards = document.querySelectorAll('.tinder--card');
 var nope = document.getElementById('nope');
 var love = document.getElementById('love');
+
 function initCards(card, index) {
   var newCards = document.querySelectorAll('.tinder--card:not(.removed)');
   newCards.forEach(function (card, index) {
@@ -10,7 +11,7 @@ function initCards(card, index) {
     card.style.transform = 'scale(' + (20 - index) / 20 + ') translateY(-' + 30 * index + 'px)';
     card.style.opacity = (10 - index) / 10;
   });
-  tinderContainer.classList.add('loaded');
+  if (tinderContainer) tinderContainer.classList.add('loaded');
 }
 initCards();
 allCards.forEach(function (el) {
@@ -28,7 +29,10 @@ allCards.forEach(function (el) {
     var rotate = xMulti * yMulti;
     event.target.style.transform = 'translate(' + event.deltaX + 'px, ' + event.deltaY + 'px) rotate(' + rotate + 'deg)';
   });
+
+
   hammertime.on('panend', function (event) {
+
     el.classList.remove('moving');
     tinderContainer.classList.remove('tinder_love');
     tinderContainer.classList.remove('tinder_nope');
@@ -53,29 +57,49 @@ allCards.forEach(function (el) {
         var link = event.target.querySelector('a');
 
         if (link)  {
-            console.log(link);
-            path = link.getAttribute("href");
-            var thenum = path.replace( /^\D+/g, '');
-            event.target.style.transform = 'translate(' + toX + 'px, ' + (toY + event.deltaY) + 'px) rotate(' + rotate + 'deg)';
+          console.log(link);
+          path = link.getAttribute("href");
+          var thenum = path.replace( /^\D+/g, '');
+          event.target.style.transform = 'translate(' + toX + 'px, ' + (toY + event.deltaY) + 'px) rotate(' + rotate + 'deg)';
 
-              if (event.deltaX > 0) {
-                $.ajax({
-                  url: '/places/'+ thenum +'/matches',
-                  type: 'post',
-                  data: { username: window.username, status: "yes"},
-                });
-              } else {
-                $.ajax({
-                  url: '/places/'+ thenum +'/matches',
-                  type: 'post',
-                  data: { username: window.username, status: "no"},
+          if (event.deltaX > 0) {
+            $.ajax({
+              url: '/places/'+ thenum +'/matches',
+              type: 'post',
+              data: { username: window.username, status: "yes"},
+            });
+
+            // let bae = document.querySelector(".badge").innerText;
+            // bae.innerText + 1;
+
+            $.ajax({
+              url: "places/",
+              type: 'GET',
+              dataType: "html",
+              success: function(data) {
+                // result = $(data).filter(".badge");
+                // console.log(data);
+                // console.log(result);
+                var html = $.parseHTML(data);
+                let bad = $(html).find('.badge')[0].innerText;
+                console.log(bad);
+                $(".badge").text(bad);
+                 }
+
+              });
+
+          } else {
+            $.ajax({
+              url: '/places/'+ thenum +'/matches',
+              type: 'post',
+              data: { username: window.username, status: "no"},
                 }); // ajax closing
               }; // second else
 
 
-        }
+            }
 
-      }, 500);
+          }, 500);
 
 
     }; // first else
