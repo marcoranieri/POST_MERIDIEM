@@ -77,8 +77,12 @@ allCards.forEach(function (el) {
               type: 'GET',
               dataType: "html",
               success: function(data) {
-                result = $(data).filter("#badge");
-                let bad = result.prevObject[33].querySelector('.badge').innerText;
+                // result = $(data).filter(".badge");
+                // console.log(data);
+                // console.log(result);
+                var html = $.parseHTML(data);
+                let bad = $(html).find('.badge')[0].innerText;
+                console.log(bad);
                 $(".badge").text(bad);
                  }
 
