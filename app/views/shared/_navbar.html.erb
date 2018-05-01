@@ -11,6 +11,9 @@
 
       <!-- Links when logged I need to replace -->
       <%= link_to image_tag("full_heart_icon.png"), "#", class: "favorites-navbar avatar" %>
+      <span class="badge"><%= Match.where(user_id: current_user).count %></span>
+
+
 
       <!-- Avatar with dropdown menu I need to replace -->
       <div class="navbar-wagon-item">
@@ -48,13 +51,16 @@
 
   <!-- Dropdown list appearing on mobile only -->
   <div class="navbar-wagon-item hidden-md hidden-lg" style="display: flex;">
-
+<div>
     <% if current_user %>
       <%= link_to user_matches_path(current_user.id) do %>
         <i id="icon-matches" class="fab fa-gratipay"></i>
+
+        <span class="badge"><%= Match.where(user_id: current_user).count %></span>
+
       <% end %>
     <% end %>
-
+</div>
     <div class="dropdown">
 
       <%= image_tag "icons_about_user.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
