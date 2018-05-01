@@ -10,9 +10,12 @@
 <% @user_matches.each do |single_match| %>
   <br>
 
-  <% photo_reference =  single_match.place.google_data["photos"][0]["photo_reference"] %>
-  <% url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{photo_reference}&key=AIzaSyBgvkz1otrXFV3sQgk5vgRjY_9VER152_4" %>
-  <%= image_tag url %>
+  <% if single_match.place.google_data["photos"][0] %>
+    <% photo_reference =  single_match.place.google_data["photos"][0]["photo_reference"] %>
+    <% url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{photo_reference}&key=#{Place::GOOGLE_API_KEY}" %>
+
+    <%= image_tag url %>
+  <% end %>
 
   <h3>People who liked it:	<%= single_match.place.matches.count %> </h3>
 

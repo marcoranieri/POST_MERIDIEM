@@ -2,38 +2,61 @@
 
   <div class="tinder--cards">
     <% @places.each do |place|  %>
-      <% if place.google_data["opening_hours"] %>
-        <% if place.google_data["opening_hours"]["open_now"] %>
+    <% if place.google_data["opening_hours"] %>
+    <% if place.google_data["opening_hours"]["open_now"] %>
+    <% if place.google_data["photos"][0]  %>
 
-          <div class="tinder--card">
-            <%= link_to place_path(place) do %>
-              <% if place.google_data["photos"] != nil %>
-                <% photo_reference = place.google_data["photos"][0]["photo_reference"] %>
-                <% url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{photo_reference}&key=AIzaSyBgvkz1otrXFV3sQgk5vgRjY_9VER152_4"  %>
 
-                <%= image_tag url %>
+    <script>console.log(<%= place.google_data.to_json.html_safe %>)</script>
 
-               <% end %> <%# END of IF  %>
-            <% end %> <%# END of LINK_TO  %>
+    <div class="tinder--card">
+      <%= link_to place_path(place) do %>
+      <% if place.google_data["photos"].size > 1 %>
 
-            <h3>
-              <%= link_to place.name, place_path(place)  %>
-            </h3>
-            <p><%= place.google_data["rating"] %></p>
-            <p>places.address</p>
-            <p>
-              <%= link_to "match it", place_matches_path(place, {:place => {:place_id =>  place.id }}), :action => :create, :method => :post %>
-              <i class="fas fa-hand-holding-heart"></i>
-            </p>
-          </div>
+      <% photo_reference = place.google_data["photos"][0]["photo_reference"] %>
+      <% url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{photo_reference}&key=#{Place::GOOGLE_API_KEY}"  %>
 
-      <%= link_to "match it", place_matches_path(place, {:place => {:place_id =>  place.id }}), :action => :create, :method => :post %>
-      <i class="fas fa-hand-holding-heart"></i>
-    </p>
+      <img class="forty-vh" src="<%= url %>" data-src="<%= url %>" >
 
-  <% end %> <%# END of ["opening_hours"] %>
-  <% end %> <%# END of ["opening_hours"]["open_now"] %>
-  <% end %> <%# END of @places.each do |place| %>
+      <% end %> <%# END of IF  %>
+
+      <!-- <h3>
+        <i class="far fa-clock"></i> "5 min" just around the corner
+      </h3> -->
+
+      <div class="rating-index">
+        <%= place.google_data["rating"] %>
+      </div>
+
+      <div class="div-name">
+        <%= link_to place.name, place_path(place)  %>
+      </div>
+
+      <div class="reviews-index">
+
+      </div>
+
+      <% end %> <%# END of LINK_TO  %>
+
+
+      <ul class="list-inline">
+        <li>
+          <%= link_to (image_tag "cross-cancel.png", size: "50x50"), place_matches_path(place, {:place => {:place_id =>  place.id, status: "no"}, kind: params[:kind]}), :action => :create, :method => :post %>
+        </li>
+        <li>
+          <%= link_to (image_tag "more-infos.png", size: "50x50"), place_path(place) %>
+        </li>
+        <li>
+          <%= link_to (image_tag "heart-green.png", size: "50x50"), place_matches_path(place, {:place => {:place_id =>  place.id, status: "yes"}, kind: params[:kind] }), :action => :create, :method => :post %>
+        </li>
+      </ul>
+
+    </div>
+
+    <% end %> <%# END of ["photo"] %>
+    <% end %> <%# END of ["opening_hours"] %>
+    <% end %> <%# END of ["opening_hours"]["open_now"] %>
+    <% end %> <%# END of @places.each do |place| %>
 
   </div>
 
