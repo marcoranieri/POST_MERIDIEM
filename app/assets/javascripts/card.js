@@ -41,12 +41,6 @@ allCards.forEach(function (el) {
   });
 
   hammertime.on('panend', function (event) {
-    if (event.deltaX > 0) {
-      console.log("right");
-    }
-  else {
-    console.log("left");
-  }
     el.classList.remove('moving');
     tinderContainer.classList.remove('tinder_love');
     tinderContainer.classList.remove('tinder_nope');
@@ -67,9 +61,34 @@ allCards.forEach(function (el) {
       var yMulti = event.deltaY / 80;
       var rotate = xMulti * yMulti;
 
-      event.target.style.transform = 'translate(' + toX + 'px, ' + (toY + event.deltaY) + 'px) rotate(' + rotate + 'deg)';
-      initCards();
-    }
+
+      if (event.deltaX > 0) {
+        console.log(event.target)
+      var thestring = event.target.querySelector('a').getAttribute("href");
+      var thenum = thestring.replace( /^\D+/g, '');
+        event.target.style.transform = 'translate(' + toX + 'px, ' + (toY + event.deltaY) + 'px) rotate(' + rotate + 'deg)';
+      console.log(thenum);
+
+        $.ajax({
+          url: '/places/'+ thenum +'/matches',
+          type: 'post',
+          data: { username: window.username, status: "yes"},
+        });
+      } else {
+        var thestring = event.target.querySelector('a').getAttribute("href");
+      var thenum = thestring.replace( /^\D+/g, '');
+        event.target.style.transform = 'translate(' + toX + 'px, ' + (toY + event.deltaY) + 'px) rotate(' + rotate + 'deg)';
+
+        $.ajax({
+          url: '/places/'+ thenum +'/matches',
+          type: 'post',
+          data: { username: window.username, status: "no"},
+        }); // ajax closing
+      }; // second else
+
+    }; // first else
+
+    initCards();
   });
 });
 
@@ -98,9 +117,9 @@ function createButtonListener(love) {
 
 document.addEventListener('DOMContentLoaded', function () {
 
-var nopeListener = createButtonListener(false);
-var loveListener = createButtonListener(true);
+  var nopeListener = createButtonListener(false);
+  var loveListener = createButtonListener(true);
 
-nope.addEventListener('click', nopeListener);
-love.addEventListener('click', loveListener);
+  nope.addEventListener('click', nopeListener);
+  love.addEventListener('click', loveListener);
 });

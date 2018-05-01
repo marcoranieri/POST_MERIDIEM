@@ -18,7 +18,20 @@
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
     <%= yield %>
-    <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
+
+
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+  <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
+
+
+
+   <!-- <script src="content/scripts/libs/hammer.js" onload="window.Hammer = module.exports;"></script> -->
+
+
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
   </body>
