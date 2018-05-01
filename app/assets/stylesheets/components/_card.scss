@@ -3,13 +3,11 @@
   padding: 0;
   margin: 0;
 }
-
-body {
-  background: #F6F6F6;
-  overflow: hidden;
-  font-family: sans-serif;
-}
-
+// body {
+//   background: #F6F6F6;
+//   overflow: hidden;
+//   font-family: sans-serif;
+// }
 .tinder {
   width: 100vw;
   height: 100vh;
@@ -20,11 +18,9 @@ body {
   opacity: 0;
   transition: opacity 0.1s ease-in-out;
 }
-
 .loaded.tinder {
   opacity: 1;
 }
-
 .tinder--status {
   position: absolute;
   top: 50%;
@@ -34,7 +30,6 @@ body {
   text-align: center;
   pointer-events: none;
 }
-
 .tinder--status i {
   font-size: 100px;
   opacity: 0;
@@ -44,17 +39,14 @@ body {
   width: 100px;
   margin-left: -50px;
 }
-
 .tinder_love .fa-heart {
   opacity: 0.7;
   transform: scale(1);
 }
-
 .tinder_nope .fa-remove {
   opacity: 0.7;
   transform: scale(1);
 }
-
 .tinder--cards {
   flex-grow: 1;
   padding-top: 40px;
@@ -64,7 +56,6 @@ body {
   align-items: flex-end;
   z-index: 1;
 }
-
 .tinder--card {
   display: inline-block;
   width: 90vw;
@@ -81,39 +72,33 @@ body {
   cursor: -moz-grab;
   cursor: grab;
 }
-
 .moving.tinder--card {
   transition: none;
   cursor: -webkit-grabbing;
   cursor: -moz-grabbing;
   cursor: grabbing;
 }
-
 .tinder--card img {
   max-width: 100%;
   pointer-events: none;
 }
-
 .tinder--card h3 {
   margin-top: 32px;
   font-size: 32px;
   padding: 0 16px;
   pointer-events: none;
 }
-
 .tinder--card p {
   margin-top: 24px;
   font-size: 20px;
   padding: 0 16px;
   pointer-events: none;
 }
-
 .tinder--buttons {
   flex: 0 0 100px;
   text-align: center;
   padding-top: 20px;
 }
-
 .tinder--buttons button {
   border-radius: 50%;
   line-height: 60px;
@@ -123,20 +108,16 @@ body {
   display: inline-block;
   margin: 0 8px;
 }
-
 .tinder--buttons button:focus {
   outline: 0;
 }
-
 .tinder--buttons i {
   font-size: 32px;
   vertical-align: middle;
 }
-
 .fa-heart {
   color: #FFACE4;
 }
-
 .fa-remove {
   color: #CDD6DD;
 }

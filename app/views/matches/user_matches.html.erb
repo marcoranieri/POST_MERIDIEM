@@ -1,15 +1,29 @@
-<h1>Hello <%= current_user.email.split("@")[0] %>! Here your matches:</h1>
+<div class="banner">
+    <div class="row">
+        <div class="rectangle-text"><h1>Hello <%= current_user.email.split("@")[0] %>! Here your matches</h1>
+        </div>
+    </div>
+</div>
+
+<div class="card-matches">
 
 <% @user_matches.each do |single_match| %>
   <br>
 
   <% photo_reference =  single_match.place.google_data["photos"][0]["photo_reference"] %>
-  <% url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{photo_reference}&key=AIzaSyBSy-fahBAu25vH9WsuZuUd_jS2P6trgp8" %>
+  <% url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{photo_reference}&key=AIzaSyBgvkz1otrXFV3sQgk5vgRjY_9VER152_4" %>
   <%= image_tag url %>
+
+  <h3>People who liked it:	<%= single_match.place.matches.count %> </h3>
+
+
 
   <%= single_match.place.name %>
   <div class="btn btn-danger btn-sm">
     <%= link_to "kill it", match_path(single_match), method: :delete  %>
   </div>
-  <br>----------------------------------
+  <br>
 <% end %>
+</div>
+</div>
+
