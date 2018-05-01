@@ -3,8 +3,8 @@
 
 <div class="card-matches">
     <% @user_matches.each do |single_match| %>
-    <% photo_reference =  single_match.place.google_data["photos"][0]["photo_reference"] %>
-    <% url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{photo_reference}&key=AIzaSyCphxuvUrZsX8xRq5rA9TZy-cgYTSHvCyU" %>
+     <% photo_reference =  single_match.place.google_data["photos"][0]["photo_reference"] %>
+     <% url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{photo_reference}&key=#{ENV['google_maps_key']}" %>
     <div class ="main-card-matches" style="background: url(<%= asset_url url %>) no-repeat;">
         <div class="card-banner-match">
                         <h3 class="card-category"><%= single_match.place.name %></h3>
@@ -16,8 +16,12 @@
 
     <% end %>
 
+
 </div>
 </div>
+
+
+
 
 
 
