@@ -14,7 +14,12 @@ class MatchesController < ApplicationController
   end
 
   def user_matches
-    @user_matches = Match.where(user_id: current_user)
+    if params.has_key?(:q)
+# search in SQL if found name containing anywhere(%) the value of research
+      @user_matches = Match.where(' ILIKE ?', "%#{params[:q]}%")
+    else
+      @user_matches = Match.where(user_id: current_user)
+    end
   end
 
   def update

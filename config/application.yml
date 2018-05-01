@@ -1,0 +1,13 @@
+development:
+  google_places_key: "AIzaSyD_ZFEJIX1AtmtrIt7C3PJUb_i9CzzXu6Y"
+  google_maps_key: "AIzaSyASkkfCNkU7aNbO_ZDBoD8nRR9xr3K2T-4"
+  google_places_key_seeds: "AIzaSyBd4bwdUk2riBS_uh7yTHpPM4aqqBklIG0"
+  google_geocoding_key_seeds: "AIzaSyBQuUO1vsFZaL2ExOOVOiT9L28tYNqtCEo"
+
+production:
+  google_places_key: "AIzaSyC8MLp1WW65LsnKO7vapDhNey8E_DxBd1Q"
+  google_maps_key: "AIzaSyASkkfCNkU7aNbO_ZDBoD8nRR9xr3K2T-4"
+  google_places_key_seeds: "AIzaSyBd4bwdUk2riBS_uh7yTHpPM4aqqBklIG0"
+  google_geocoding_key_seeds: "AIzaSyBQuUO1vsFZaL2ExOOVOiT9L28tYNqtCEo"
+  # FB_ID:
+  # FB_SECRET:

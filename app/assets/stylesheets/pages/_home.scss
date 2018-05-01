@@ -1,5 +1,7 @@
 // Specific CSS for your home-page
-
+body {
+    font-family: "Quicksand", "sans-serif" !important;
+}
 
 .home-wrapper {
   background: linear-gradient(to bottom, rgba(22,28,45,0.37) 0%,rgba(17,33,28,0.27) 100%);
@@ -18,6 +20,7 @@
 .up-down-margin {
   margin: 20px 0;
 }
+
 
 video#doge {
   position: fixed;
