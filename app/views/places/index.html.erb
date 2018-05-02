@@ -23,15 +23,17 @@
       </h3> -->
 
       <div class="rating-index">
-        <%= place.google_data["rating"] %>
+          <% blank_stars = 5 - place.google_data["rating"].to_i %>
+          <% place.google_data["rating"].to_i.times do  %>
+            <i class="fas fa-star filledstars"></i>
+          <% end %>
+          <% blank_stars.times do %>
+            <i class="far fa-star blankstars"></i>
+          <% end %>
       </div>
 
       <div class="div-name">
         <%= link_to place.name, place_path(place)  %>
-      </div>
-
-      <div class="reviews-index">
-
       </div>
 
       <% end %> <%# END of LINK_TO  %>
