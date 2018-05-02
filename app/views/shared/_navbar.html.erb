@@ -11,7 +11,7 @@
 
       <!-- Links when logged I need to replace -->
       <%= link_to image_tag("full_heart_icon.png"), "#", class: "favorites-navbar avatar" %>
-      <span class="badge"><%= Match.where(user_id: current_user).count %></span>
+      <span class="badge"><%= Match.where(user_id: current_user, status: "yes").count %></span>
 
 
 
