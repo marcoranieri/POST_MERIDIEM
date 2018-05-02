@@ -1,8 +1,22 @@
 development:
-  google_places_key: "AIzaSyD_ZFEJIX1AtmtrIt7C3PJUb_i9CzzXu6Y"
+  google_places_key: "AIzaSyC9bHyxCFQMEPB2peMtnnCLP2bY5rcq1Rs"
+  # AIzaSyAXw0q4hgyCI5S0276BI3JyXa0jJaeL7WU
+  # AIzaSyCwv08kQhFM6hDQZ0feTU_Cpvo2CpSIRxg
+  # AIzaSyB_cMuYyukQsHCIzU3pNhdvA7l2ToTy0p4
+  # AIzaSyAGxPJzpB1yTkwN6g48Pz25B1Cj5hZH98M
+
+
   google_maps_key: "AIzaSyASkkfCNkU7aNbO_ZDBoD8nRR9xr3K2T-4"
-  google_places_key_seeds: "AIzaSyBd4bwdUk2riBS_uh7yTHpPM4aqqBklIG0"
+  # AIzaSyBuNAw58JFXPFcDlnLjEHTy_KI8o_mWqUk
+  # AIzaSyAKkFzyRoSNxG8Kj-8ZmbU19vW0uNuoqJg
+  # AIzaSyBHhmwo6i1xXnFKDFcO9DzJosthKPGNAzc
+
+  google_places_key_seeds: "AIzaSyCfjfp2pPVgKUpR8wPiicDZIkwH0NYbue8"
+  # AIzaSyBL_6_ZbGv4AeSygRKjjDyhhZuVd_1pLx8
+
+
   google_geocoding_key_seeds: "AIzaSyBQuUO1vsFZaL2ExOOVOiT9L28tYNqtCEo"
+  # AIzaSyCPMBw-Gf4yXeD7Tf3lWN7PUnliziTuE_s
 
 production:
   google_places_key: "AIzaSyC8MLp1WW65LsnKO7vapDhNey8E_DxBd1Q"
