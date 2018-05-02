@@ -39,13 +39,19 @@
 
       <ul class="list-inline">
         <li>
-          <%= link_to (image_tag "cross-cancel.png", size: "50x50"), place_matches_path(place, {:place => {:place_id =>  place.id, status: "no"}, kind: params[:kind]}), :action => :create, :method => :post %>
+          <%= link_to place_matches_path(place, {:place => {:place_id =>  place.id, status: "no"}, kind: params[:kind]}), :action => :create, :method => :post do %>
+            <i id="cross-icon" class="fas fa-times"></i>
+          <% end %>
         </li>
         <li>
-          <%= link_to (image_tag "more-infos.png", size: "50x50"), place_path(place) %>
+          <%= link_to place_path(place) do %>
+            <i id="info-icon" class="fas fa-info"></i>
+          <% end %>
         </li>
         <li>
-          <%= link_to (image_tag "heart-green.png", size: "50x50"), place_matches_path(place, {:place => {:place_id =>  place.id, status: "yes"}, kind: params[:kind] }), :action => :create, :method => :post %>
+          <%= link_to place_matches_path(place, {:place => {:place_id =>  place.id, status: "yes"}, kind: params[:kind] }), :action => :create, :method => :post do %>
+            <i id="heart-icon" class="far fa-heart"></i>
+          <% end %>
         </li>
       </ul>
 
