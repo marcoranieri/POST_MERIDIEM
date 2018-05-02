@@ -1,4 +1,5 @@
 class Place < ApplicationRecord
+  GOOGLE_API_KEY = "AIzaSyCphxuvUrZsX8xRq5rA9TZy-cgYTSHvCyU"
 
   has_many :matches
 

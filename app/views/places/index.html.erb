@@ -2,8 +2,10 @@
 
   <div class="tinder--cards">
     <% @places.each do |place|  %>
-      <% if place.google_data["opening_hours"] %>
-        <% if place.google_data["opening_hours"]["open_now"] %>
+
+    <% if place.google_data["opening_hours"] %>
+      <% if place.google_data["opening_hours"]["open_now"] %>
+        <% if place.google_data["photos"][0]  %>
 
           <div class="tinder--card">
             <%= link_to place_path(place) do %>
@@ -35,6 +37,61 @@
   <% end %> <%# END of ["opening_hours"]["open_now"] %>
   <% end %> <%# END of @places.each do |place| %>
 
+
+    <div class="tinder--card">
+      <%= link_to place_path(place) do %>
+      <% if place.google_data["photos"].size > 1 %>
+
+      <% photo_reference = place.google_data["photos"][0]["photo_reference"] %>
+      <% url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{photo_reference}&key=#{Place::GOOGLE_API_KEY}"  %>
+
+      <img class="forty-vh" src="<%= url %>" data-src="<%= url %>" >
+
+      <% end %> <%# END of IF  %>
+
+      <!-- <h3>
+        <i class="far fa-clock"></i> "5 min" just around the corner
+      </h3> -->
+
+      <div class="rating-index">
+        <%= place.google_data["rating"] %>
+      </div>
+
+      <div class="div-name">
+        <%= link_to place.name, place_path(place)  %>
+      </div>
+
+      <div class="reviews-index">
+
+      </div>
+
+      <% end %> <%# END of LINK_TO  %>
+
+
+      <ul class="list-inline">
+        <li>
+          <%= link_to place_matches_path(place, {:place => {:place_id =>  place.id, status: "no"}, kind: params[:kind]}), :action => :create, :method => :post do %>
+            <i id="cross-icon" class="fas fa-times"></i>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to place_path(place) do %>
+            <i id="info-icon" class="fas fa-info"></i>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to place_matches_path(place, {:place => {:place_id =>  place.id, status: "yes"}, kind: params[:kind] }), :action => :create, :method => :post do %>
+            <i id="heart-icon" class="far fa-heart"></i>
+          <% end %>
+        </li>
+      </ul>
+
+    </div>
+
+    <% end %> <%# END of ["photo"] %>
+    <% end %> <%# END of ["opening_hours"] %>
+    <% end %> <%# END of ["opening_hours"]["open_now"] %>
+    <% end %> <%# END of @places.each do |place| %>
   </div>
 
 </div>

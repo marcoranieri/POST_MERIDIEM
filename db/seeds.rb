@@ -9,29 +9,30 @@ Geokit::Geocoders::GoogleGeocoder.api_key = ENV['google_geocoding_key_seeds']
 
 # RESET SEEDS ---------
 Match.destroy_all
-Place.destroy_all
-User.destroy_all
+#Place.destroy_all
 # ---------------------
 
 User.create(email:"test@test.com", password: "test@test.com")
 
+
 client = GooglePlaces::Client.new(ENV['google_places_key_seeds'])
 
 puts "Type the restraurant"
-restaurant = "restaurant"
+restaurant = "restaurant|bar|cafe"
 
 puts "Type the location"
 location = "corso como 10, milano"
 
 coords = Geokit::Geocoders::GoogleGeocoder.geocode(location)
 
+p coords
+
+
+lat = 45.463024
+lng = 9.186179
 hash_rest = {}
+client.spots(lat, lng, { radius: 3000, rankby: "distance", types: "cafe", detail: true}).each do |rest|
 
-client.spots(coords.lat, coords.lng, { radius: 2000, rankby: "distance", types: restaurant, detail: true}).each do |rest|
-
-  puts "* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *"
-  puts ""
-  puts "* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *"
 # we create a new Place Object
   place = Place.new
 
@@ -53,13 +54,13 @@ client.spots(coords.lat, coords.lng, { radius: 2000, rankby: "distance", types: 
   end
 
 # we store the full OBJ in a Hash (type JsonB on model) so we will carry also REVIEWS and PHOTO
-  p place.google_data = rest
+  place.google_data = rest
 
 # we save the instance
   place.save
 
 # Diplay the info on terminal
-   place.name
+   p place.name
    place.address
    # place.timetable.gsub(/["\\\[\]]/, '').split(", /\w/") unless place.timetable.nil?
 
@@ -90,6 +91,6 @@ client.spots(coords.lat, coords.lng, { radius: 2000, rankby: "distance", types: 
   #  else
   #   hash_rest.store(Google::Maps.distance(location, rest[:vicinity]).split(" ")[0].to_f,[rest.name])
   # end
-  # duration = Google::Maps.duration(location, rest[:vicinity])
+ # duration = Google::Maps.duration(location, rest[:vicinity])
   # hash_rest.store(distance.first.to_f,array)
 end

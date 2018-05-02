@@ -6,15 +6,18 @@ class MatchesController < ApplicationController
 
   def create
 
+    status = params["status"] || params["place"]["status"]
+
    params.has_key?("username") ? user = params["username"].to_i : user = current_user.id
-     @match = Match.new(user_id: user, place_id: params["place_id"].to_i, status: params["status"])
+     @match = Match.new(user_id: user, place_id: params["place_id"].to_i, status: status)
      @match.save
 
-    redirect_to places_url
+
+    redirect_to places_path(kind: params[:kind])
   end
 
   def user_matches
-    @user_matches = Match.where(user_id: current_user)
+    @user_matches = Match.where(user_id: current_user.id, status: "yes").order("created_at desc")
   end
 
   def update

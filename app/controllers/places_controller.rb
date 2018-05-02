@@ -2,14 +2,12 @@ class PlacesController < ApplicationController
 
   def index
     @places = []
-    Place.all.each do |place|
-      if place.matches.blank?
-        @places << place
-      else
-        place.matches.each do |matchh|
-          @places << place if matchh.user != current_user
-        end
-      end
+    already_matches_place_ids = current_user.matches.where(status: "yes").map(&:place_id)
+
+    Place.where.not(id: already_matches_place_ids).each do |place|
+      next if params[:kind].present? and not place.google_data["types"].include? params[:kind]
+
+      @places << place
     end
   end
 

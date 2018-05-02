@@ -125,8 +125,16 @@ document.addEventListener('DOMContentLoaded', function () {
       showMore.show();
       button.hide();
     });
-});
 
+
+    var selectorSrc = "data-src";
+    var images = document.querySelectorAll("["+selectorSrc+"]");
+
+    images.forEach(function(image) {
+    //  image.src = image.dataset.src;
+    });
+
+});
 
 
 //document.getElementById("tinder--card").addEventListener("click", link_to_index);

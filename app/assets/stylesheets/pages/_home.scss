@@ -1,7 +1,10 @@
 // Specific CSS for your home-page
+body {
+    font-family: "Quicksand", "sans-serif" !important;
+}
 
 .home-wrapper {
-  background: lightblue;
+  background: linear-gradient(to bottom, rgba(22,28,45,0.37) 0%,rgba(17,33,28,0.27) 100%);
   height: 100vh;
   display: flex;
   align-items: center;
@@ -9,10 +12,86 @@
   h1 {
     margin-bottom: 27px;
     font-size: 2.5em;
+    color: white;
+    font-weight: lighter;
   }
 }
 
 .up-down-margin {
   margin: 20px 0;
+}
+
+
+video#doge {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  background-size: cover;
+}
+
+.btn-primary {
+  margin: auto;
+}
+
+/* Facebook button */
+
+.facebookLoginBtnMain {
+  background-color: #4267b2;
+  margin: 0 auto;
+  border: none;
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  font-family: sans-serif;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.facebookLoginBtnMain:hover {
+  background: #5979d1;
+}
+
+.facebookLoginBtnMain span {
+  float: right;
+}
+
+
+
+/* X large */
+
+.xLargeFacebookBtn.facebookLoginBtnMain {
+  height: 40px;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 6px;
+  border-radius: 4px;
+}
+
+.xLargeFacebookBtn.facebookLoginBtnMain svg {
+  height: 28px;
+}
+
+.xLargeFacebookBtn.facebookLoginBtnMain span {
+  height: 28px;
+  line-height: 28px;
+  padding: 0 16px;
+}
+
+.btn-danger {
+  margin: auto;
+  width: 100px;
+  padding: 10px 10px;
+  font-size: 15px;
+  border-radius: 8px;
 }
 

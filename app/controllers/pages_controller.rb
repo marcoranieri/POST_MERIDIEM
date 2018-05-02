@@ -8,6 +8,10 @@ class PagesController < ApplicationController
   def load
   end
 
+  def demo
+    @navbar = true
+  end
+
   def search
   end
 end
