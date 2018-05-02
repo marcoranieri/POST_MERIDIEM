@@ -7,4 +7,9 @@ class ApplicationController < ActionController::Base
     redirect_to places_path if current_user and root_path == request.path
   end
 
+  def default_url_options
+    { host: ENV["HOST"] || "localhost:3000" }
+  end
+
 end
+
