@@ -1,22 +1,20 @@
 .wrapper-search {
     max-width: 1000px;
-    margin: 50px auto;
+    margin: 0 10px;
 }
-
-.shapes {
-    position: relative;
-}
-
-.card-search {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 25px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-}
-.card-description {
-    text-align: center;
-    z-index: 1000;
+    .shapes {
+        position: relative;
+    }
+    .card-search {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
+        background-color: #F6F6F6;
+    }
+    .card-description {
+        text-align: center;
+        z-index: 1000;
     // position: absolute;
     // bottom: -207px;
     // right: -274px;
@@ -24,81 +22,68 @@
         font-size: 18px;
         font-weight: bold;
         margin: 3px auto;
-     }
+    }
 }
 
 .info-card {
     flex-grow: 1;
-    color: #34374C;
-    margin-left: -40px;
+    color: white;
+    margin-left: -70px;
+    text-shadow: 2px 1px 4px black;
     p {
         font-size: 14px;
+        margin-bottom: 0;
     }
 }
 
 .triangle {
+    // z-index: 1;
+    // width: 263px;
+    // height: 279px;
+    // background-size: cover;
+    // position: absolute;
+    // top: 0;
+    // -webkit-clip-path: polygon(0% 0%, 0% 43%, 68% 43%, 100% 0%);
+    // clip-path: polygon(0% 0%, 0% 43%, 68% 43%, 100% 0%);
     z-index: 1;
     height: 0;
     width: 0;
-    opacity: 0.1;
-    border-left: 271px solid #2C2E3E;
+    opacity: 0.3;
+    border-left: 271px solid $red;
     border-right: 100px solid transparent;
-    border-top: 120px solid transparent;
+    border-top: 130px solid transparent;
+}
+.main-card-search {
+    margin-bottom: 17px;
+    position: relative;
+    a {
+        z-index: 100000;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
 }
 
-.trapezium {
- z-index: 1;
- width: 263px;
- height: 279px;
- background-size: cover;
- position: absolute;
- top: 0;
- -webkit-clip-path: polygon(0% 0%, 0% 43%, 68% 43%, 100% 0%);
- clip-path: polygon(0% 0%, 0% 43%, 68% 43%, 100% 0%);
-}
 
 @media only screen and (max-width: 700px) {
-    .trapezium {
-        -webkit-clip-path: polygon(0% 0%, 0% 43%, 40% 43%, 58% 0%);
-        clip-path: polygon(0% 0%, 0% 43%, 45% 43%, 70% 0%);
-    }
+
     .triangle {
-        border-left: 210px solid #2C2E3E;
+        border-left: 210px solid $red;
         border-right: 0;
-        border-top: 120px solid transparent;
+        border-top: 130px solid transparent;
     }
 }
 
 @media only screen and (max-width: 500px) {
-    .trapezium {
-        -webkit-clip-path: polygon(0% 0%, 0% 43%, 34% 43%, 54% 0%);
-        clip-path: polygon(0% 0%, 0% 43%, 34% 43%, 54% 0%);
-    }
+
     .info-card {
         margin-left: -30px;
     }
     .triangle {
-        border-left: 160px solid #2C2E3E;
+        border-left: 160px solid $red;
         border-right: 0;
-        border-top: 120px solid transparent;
-    }
-}
-@media only screen and (max-width: 300px) {
-    .card-search {
-        display: block;
-        max-width: 300px;
-    }
-    .shapes {
-    }
-    .trapezium {
-        max-width: 300px;
-        max-height: 120px;
-        -webkit-clip-path: none;
-        clip-path: none;
-    }
-    .triangle {
-        border-left: 210px solid #2C2E3E;
-        border-right: 0;
-        border-top: 120px solid transparent;
+        border-top: 130px solid transparent;
     }
 }
