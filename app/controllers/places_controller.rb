@@ -7,13 +7,7 @@ class PlacesController < ApplicationController
     Place.where.not(id: already_matches_place_ids).each do |place|
       next if params[:kind].present? and not place.google_data["types"].include? params[:kind]
 
-      if place.matches.blank?
-        @places << place
-      else
-        place.matches.each do |matchh|
-          @places << place if matchh.user != current_user
-        end
-      end
+      @places << place
     end
   end
 

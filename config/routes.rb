@@ -12,6 +12,9 @@ Rails.application.routes.draw do
 
   get "load", to: "pages#load", as: :load
 
+# DEMO Landing Page (without login)
+  get "demo", to: "pages#demo", as: :demo
+
   get "search", to: "pages#search"
   #  get "places/:id/matches", to: "matches#destroy"
 
