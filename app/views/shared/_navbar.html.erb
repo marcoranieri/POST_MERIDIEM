@@ -56,7 +56,7 @@
       <%= link_to user_matches_path(current_user.id) do %>
         <i id="icon-matches" class="fab fa-gratipay"></i>
 
-        <span class="badge"><%= Match.where(user_id: current_user).count %></span>
+        <span class="badge"><%= Match.where(user_id: current_user, status: "yes").count %></span>
 
       <% end %>
     <% end %>
