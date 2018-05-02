@@ -1,7 +1,4 @@
-// Specific CSS for your home-page
-body {
-    font-family: "Quicksand", "sans-serif" !important;
-}
+
 
 .home-wrapper {
   background: linear-gradient(to bottom, rgba(22,28,45,0.37) 0%,rgba(17,33,28,0.27) 100%);
@@ -9,6 +6,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+
   h1 {
     margin-bottom: 27px;
     font-size: 2.5em;
@@ -94,5 +92,7 @@ video#doge {
   padding: 10px 10px;
   font-size: 15px;
   border-radius: 8px;
+  font-weight: lighter;
+
 }
 
