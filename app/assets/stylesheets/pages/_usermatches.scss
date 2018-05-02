@@ -1,40 +1,67 @@
-.h1{
-    color: #2C2E3E;
-    text-align: center;
-    margin-top: 11px;
-    margin-left: auto;
-    margin-right: auto;
+.matches-wrapper {
+    background-color: #34374C;
 }
-.card-banner-match {
+.card-matches{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-flow: row wrap;
+    justify-content: space-around;
 }
-
 .main-card-matches{
-    margin-bottom: 4px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-    width: 100vw !important;
-    height: 100px !important;
+    color: $blue !important;
+    margin-bottom: 17px;
+    margin-left: 0px;
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.3);
+    width: 44vw !important;
+    min-height: 190px !important;
+    text-align: center;
+    background-color: white;
+    h3 {
+        font-size: 15px;
+        padding-top: 14px;
+        padding-left: 8px;
+        padding-right: 8px;
+        margin-bottom: 8px;
+        font-weight: bold;
+    }
+}
+.photo-card {
     background-position: left;
-    background-size: 110px 130px !important;
+    background-size: cover !important;
+    height: 100px !important;
+    width: 100% !important;
+}
+.icon-matches {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+    i {
+        color: $red;
+        margin-top: -4px;
+        margin-left: 4px;
+    }
+    div {
+        opacity: 0.5;
+
+    }
 }
 
-.big-card-infos-match {
-    text-align: center;
-    z-index: 1000;
-    // position: absolute;
-    // bottom: -207px;
-    // right: -274px;
-    h3 {
-    font-size: 18px;
-    font-weight: bold;
-    /* margin: 0px auto; */
-    margin-left: -140px;
-    color: white;
-    float: left
-     }
-}
+// .big-card-infos-match {
+//     text-align: center;
+//     z-index: 1000;
+//     // position: absolute;
+//     // bottom: -207px;
+//     // right: -274px;
+//     h3 {
+//     font-size: 18px;
+//     font-weight: bold;
+//     /* margin: 0px auto; */
+//     margin-left: -140px;
+//     color: white;
+//     float: left
+//      }
+// }
 
 .info-match {
     flex-grow: 1;
@@ -49,5 +76,28 @@
 
     }
 }
+.user-welcome {
+    color: white;
+    margin: 25px auto;
+    margin-top: 0;
+    text-align: center;
+    h1 {
+        font-size: 30px;
+        font-weight: bold;
+        margin-top: 0;
+        padding-top: 25px;
+    }
+    p {
+        font-size: 18px;
+    }
+}
 
+.triangle-match {
+    z-index: 1;
+    height: 0;
+    width: 0;
+    opacity: 0.5;
+    border-left: 170px solid #EE2B47;
+    border-top: 145px solid transparent;
+}
 
