@@ -53,25 +53,7 @@ allCards.forEach(function (el) {
 
       var path = '';
 
-      setTimeout(function () {
-        var link = event.target.querySelector('a');
-
-        if (link)  {
-          console.log(link);
-          path = link.getAttribute("href");
-          var thenum = path.replace( /^\D+/g, '');
-          event.target.style.transform = 'translate(' + toX + 'px, ' + (toY + event.deltaY) + 'px) rotate(' + rotate + 'deg)';
-
-          if (event.deltaX > 0) {
-            $.ajax({
-              url: '/places/'+ thenum +'/matches',
-              type: 'post',
-              data: { username: window.username, status: "yes"},
-            });
-
-            // let bae = document.querySelector(".badge").innerText;
-            // bae.innerText + 1;
-
+      var updateCounter = function () {
             $.ajax({
               url: "places/",
               type: 'GET',
@@ -82,19 +64,43 @@ allCards.forEach(function (el) {
                 // console.log(result);
                 var html = $.parseHTML(data);
                 let bad = $(html).find('.badge')[0].innerText;
-                console.log(bad);
                 $(".badge").text(bad);
-                 }
+              }
+            });
+      };
 
-              });
+      setTimeout(function () {
+        var link = event.target.querySelector('a');
+
+        if (link)  {
+          path = link.getAttribute("href");
+          var thenum = path.replace( /^\D+/g, '');
+          event.target.style.transform = 'translate(' + toX + 'px, ' + (toY + event.deltaY) + 'px) rotate(' + rotate + 'deg)';
+
+          if (event.deltaX > 0) {
+            $.ajax({
+              url: '/places/'+ thenum +'/matches',
+              type: 'post',
+              data: { username: window.username, status: "yes"},
+              success: function () {
+                updateCounter();
+              }
+            });
+
+            // let bae = document.querySelector(".badge").innerText;
+            // bae.innerText + 1;
+
 
           } else {
             $.ajax({
               url: '/places/'+ thenum +'/matches',
               type: 'post',
               data: { username: window.username, status: "no"},
-                }); // ajax closing
-              }; // second else
+              success: function () {
+                updateCounter();
+              }
+            }); // ajax closing
+          }; // second else
 
 
             }
