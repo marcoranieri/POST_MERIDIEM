@@ -1,31 +1,50 @@
 <div class="matches-wrapper">
-    <div class="user-welcome">
-        <h1>Hello <%= current_user.email.split("@")[0]%> :)</h1>
-        <p>The places you love:</p>
-    </div>
+  <div class="user-welcome">
+    <h1>Hello <%= current_user.email.split("@")[0]%> :)</h1>
+    <p>The places you love:</p>
+  </div>
 
-    <div class="card-matches">
-        <% @user_matches.each do |single_match| %>
-        <% if single_match.place.google_data["photos"][0] %>
+  <div class="card-matches container">
+    <div class="row">
+    <% @user_matches.each do |single_match| %>
+      <% if single_match.place.google_data["photos"][0] %>
 
-        <% photo_reference =  single_match.place.google_data["photos"][0]["photo_reference"] %>
-        <% url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{photo_reference}&key=#{ENV['google_maps_key']}" %>
+      <% photo_reference =  single_match.place.google_data["photos"][0]["photo_reference"] %>
+      <% url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{photo_reference}&key=#{ENV['google_maps_key']}" %>
+      <div class="col-xs-6">
         <div class="main-card-matches">
-            <div class ="photo-card" style="background: url(<%= asset_url url %>) no-repeat;"></div>
-            <h3 class="card-category"><%= single_match.place.name %></h3>
 
-            <div class="icon-matches">
-                <div><%= single_match.place.matches.count %> </div>
-                <i class="fa fa-heart" style="size:1px";> <%= link_to image_tag(""), match_path(single_match), method: :delete  %></i>
+          <%= link_to place_path(single_match.place) do %>
+           <div class="photo-card" style="background: url(<%= asset_url url %>) no-repeat;"></div>
+          <% end %>
+
+
+          <h3 class="card-category">
+            <%= link_to single_match.place.name, place_path(single_match.place) %>
+
+            </h3>
+          <div class="wrapper-heart">
+            <div class="delete-heart">
+
+              <%= link_to match_path(single_match), method: :delete do %>
+                  <i class="far fa-trash-alt"></i>
+              <% end %>
+
             </div>
+            <div class="icon-matches">
+              <div><%= single_match.place.matches.count %> </div>
+              <i class="fa fa-heart" style="size:1px";></i>
+            </div>
+          </div>
         </div>
+      </div>
+
+      <% end %>
+    <% end %>
+  </div> <!-- / row -->
 
 
-        <% end %>
-        <% end %>
-
-
-    </div>
+  </div>
 </div>
 
 
