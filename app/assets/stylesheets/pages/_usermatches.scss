@@ -1,10 +1,11 @@
 .matches-wrapper {
+   min-height: 90vh;
     background-color: #34374C;
 }
 .card-matches{
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
+    // display: flex;
+    // flex-flow: row wrap;
+    // justify-content: space-around;
 }
 .main-card-matches{
     color: $blue !important;
@@ -15,7 +16,12 @@
     min-height: 190px !important;
     text-align: center;
     background-color: white;
-    h3 {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+
+
+ h3 {
         font-size: 15px;
         padding-top: 14px;
         padding-left: 8px;
@@ -23,6 +29,7 @@
         margin-bottom: 8px;
         font-weight: bold;
     }
+
 }
 .photo-card {
     background-position: left;
@@ -30,6 +37,7 @@
     height: 100px !important;
     width: 100% !important;
 }
+
 .icon-matches {
     display: flex;
     justify-content: center;
@@ -62,6 +70,10 @@
 //     float: left
 //      }
 // }
+
+.card-category a {
+  color: #000;
+}
 
 .info-match {
     flex-grow: 1;
@@ -101,3 +113,13 @@
     border-top: 145px solid transparent;
 }
 
+.wrapper-heart {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+
+}
+.delete-heart a {
+  color: #EE2B47;
+  font-size: 1.5em;
+}
