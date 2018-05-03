@@ -12,8 +12,9 @@
     justify-content: center;
  }
 
- .heart-icon{
-     font-size:3em;
+ #heart-icon{
+     font-size:2.5em;
+     padding-right: 26px;
  }
 
 .photo-show{
@@ -35,6 +36,17 @@
     flex-flow: column;
     align-items: center;
     justify-content: space-around;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+.place-title {
+  flex-grow: 1;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+  h2 {
+    font-weight: bold;
+  }
 }
 
 .main-place-information {
@@ -77,11 +89,12 @@ ul.select-options {
 }
 
 #address {
+  margin-top: 1em;
     font-size: 1.4em;
-
+    margin-bottom: 0;
     i {
-        color:red;
-        margin-top:1em;
+        color:$red;
+        margin-top:0.6em;
 
     }
 
@@ -91,8 +104,8 @@ ul.select-options {
    font-size: 1.4em;
 
     i {
-        color:red;
-        margin-top:1em;
+        color:$red;
+        margin-top:0.6em;
 
     }
 }
@@ -118,10 +131,12 @@ hr {
     width: 100vw;
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
 
 .goto-maps {
-    font-size: 2em;
+    font-size: 2.5em;
+    padding-left: 26px;
 }
 // .select-hidden {
 //   display: none;

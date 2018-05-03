@@ -7,16 +7,6 @@
   <div class="main-place-information">
     <div class="place">
 
-      <div class="rating-show">
-        <% blank_stars = 5 - @place.google_data["rating"].to_i %>
-        <% @place.google_data["rating"].to_i.times do  %>
-        <i class="fas fa-star filledstars"></i>
-        <% end %>
-        <% blank_stars.times do %>
-        <i class="far fa-star blankstars"></i>
-        <% end %>
-      </div>
-
       <div class="title">
 
         <div class="goto-maps">
@@ -26,7 +16,17 @@
         </div>
 
         <div class="place-title">
+           <div class="rating-show">
+        <% blank_stars = 5 - @place.google_data["rating"].to_i %>
+        <% @place.google_data["rating"].to_i.times do  %>
+        <i class="fas fa-star filledstars"></i>
+        <% end %>
+        <% blank_stars.times do %>
+        <i class="far fa-star blankstars"></i>
+        <% end %>
+      </div>
           <h2><%= @place.name.capitalize %></h2>
+
         </div>
 
         <div>
@@ -52,12 +52,9 @@
         <%= @place.phone_number%>
       </p>
       <p>
-        <%= link_to "#{@place.website}", @place.website, target: "_blank" %>
+        <%= link_to "Go to website", @place.website, target: "_blank" %>
       </p>
     </div>
-
-
-    <hr>
 
     <div class="timetable">
       <!-- <i class="far fa-clock"></i> -->

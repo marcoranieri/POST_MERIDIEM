@@ -1,7 +1,9 @@
-
+body {
+  font-family: 'Quicksand', sans-serif !important;
+}
 
 .home-wrapper {
-  background: linear-gradient(to bottom, rgba(22,28,45,0.37) 0%,rgba(17,33,28,0.27) 100%);
+  background: linear-gradient(to bottom, rgba(3, 2, 1, 0.2) 20%, rgba(3, 2, 1, 0.9) 90%);
   height: 100vh;
   display: flex;
   align-items: center;
@@ -11,7 +13,7 @@
     margin-bottom: 27px;
     font-size: 2.5em;
     color: white;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     font-weight: bold;
   }
 }
