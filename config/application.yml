@@ -1,9 +1,9 @@
 development:
-  google_places_key: "AIzaSyC9bHyxCFQMEPB2peMtnnCLP2bY5rcq1Rs"
+  google_places_key: "AIzaSyAGxPJzpB1yTkwN6g48Pz25B1Cj5hZH98M"
   # AIzaSyAXw0q4hgyCI5S0276BI3JyXa0jJaeL7WU
   # AIzaSyCwv08kQhFM6hDQZ0feTU_Cpvo2CpSIRxg
-  # AIzaSyB_cMuYyukQsHCIzU3pNhdvA7l2ToTy0p4
-  # AIzaSyAGxPJzpB1yTkwN6g48Pz25B1Cj5hZH98M
+  #
+  #
 
 
   google_maps_key: "AIzaSyBuNAw58JFXPFcDlnLjEHTy_KI8o_mWqUk"
@@ -19,7 +19,7 @@ development:
   # AIzaSyCPMBw-Gf4yXeD7Tf3lWN7PUnliziTuE_s
 
 production:
-  google_places_key: "AIzaSyC8MLp1WW65LsnKO7vapDhNey8E_DxBd1Q"
+  google_places_key: "AIzaSyB_cMuYyukQsHCIzU3pNhdvA7l2ToTy0p4"
   google_maps_key: "AIzaSyASkkfCNkU7aNbO_ZDBoD8nRR9xr3K2T-4"
   google_places_key_seeds: "AIzaSyBd4bwdUk2riBS_uh7yTHpPM4aqqBklIG0"
   google_geocoding_key_seeds: "AIzaSyBQuUO1vsFZaL2ExOOVOiT9L28tYNqtCEo"

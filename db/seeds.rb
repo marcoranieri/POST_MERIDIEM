@@ -13,6 +13,7 @@ Match.destroy_all
 # ---------------------
 
 User.create(email:"test@test.com", password: "test@test.com")
+User.create(email:"Sonia@test.com", password: "Sonia@test.com")
 
 
 client = GooglePlaces::Client.new(ENV['google_places_key_seeds'])

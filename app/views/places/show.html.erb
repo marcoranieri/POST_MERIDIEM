@@ -1,33 +1,31 @@
 <div class="wrapper-show">
   <% if @place.google_data["photos"].size > 0 %>
-  <% photo_reference = @place.google_data["photos"][0]["photo_reference"] %>
-  <% url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{photo_reference}&key=#{ENV['google_maps_key']}"%>
+    <% photo_reference = @place.google_data["photos"][0]["photo_reference"] %>
+    <% url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{photo_reference}&key=#{ENV['google_maps_key']}"%>
 
-  <div class="photo-show" style="background: url('<%= asset_url url %>') center center no-repeat;">
-
-
-  </div>
+      <div class="photo-show" style="background: url('<%= asset_url url %>') center center no-repeat;">
+    </div>
   <% end %>
 
   <div class="main-place-information">
-      <div class="place">
+    <div class="place">
 
-        <div class="rating-show">
-          <% blank_stars = 5 - @place.google_data["rating"].to_i %>
-          <% @place.google_data["rating"].to_i.times do  %>
-          <i class="fas fa-star filledstars"></i>
-          <% end %>
-          <% blank_stars.times do %>
-          <i class="far fa-star blankstars"></i>
-          <% end %>
-      </div>
+      <div class="rating-show">
+        <% blank_stars = 5 - @place.google_data["rating"].to_i %>
+        <% @place.google_data["rating"].to_i.times do  %>
+        <i class="fas fa-star filledstars"></i>
+        <% end %>
+        <% blank_stars.times do %>
+        <i class="far fa-star blankstars"></i>
+        <% end %>
+    </div>
 
       <div class="title">
 
         <div class="goto-maps">
-            <a href="<%= "#{@place.urlmaps}" %>" target ="_blank">
+              <%= link_to "https://www.google.com/maps/dir/?api=1&destination=#{URI::encode(@place.address)}", target: "_blank" do %>
                 <p><i class="fas fa-street-view"></i></p>
-            </a>
+              <% end %>
         </div>
 
         <div class="place-title">
