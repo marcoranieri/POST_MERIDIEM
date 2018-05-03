@@ -23,8 +23,8 @@
 
 
 .hoursWrapper{
-        display: flex;
-    font-size: 8px;
+    display: flex;
+    font-size: 12px;;
     align-items: center;
     justify-content: center;
     margin-top: 1px;
@@ -32,9 +32,8 @@
 
 .place {
     display: flex;
-    flex-flow: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .main-place-information {
