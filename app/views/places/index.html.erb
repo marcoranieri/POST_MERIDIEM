@@ -9,13 +9,18 @@
 
     <div class="tinder--card">
       <%= link_to place_path(place) do %>
-      <% if place.google_data["photos"].size > 1 %>
+
+      <% if place.google_data["photos"].size > 0 %>
 
       <% photo_reference = place.google_data["photos"][0]["photo_reference"] %>
       <% url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{photo_reference}&key=#{ENV['google_places_key']}"  %>
 
       <img class="forty-vh" src="<%= url %>" data-src="<%= url %>" >
 
+      <% else %>
+        <br>
+        <br>
+        <br>
       <% end %> <%# END of IF  %>
 
       <!-- <h3>

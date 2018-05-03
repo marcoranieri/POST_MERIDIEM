@@ -1,7 +1,8 @@
 <div class="wrapper-show">
-  <% if @place.google_data["photos"] != nil %>
+  <% if @place.google_data["photos"].size > 0 %>
   <% photo_reference = @place.google_data["photos"][0]["photo_reference"] %>
   <% url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{photo_reference}&key=#{ENV['google_maps_key']}"%>
+
   <div class="photo-show" style="background: url('<%= asset_url url %>') center center no-repeat;">
 
 
@@ -54,6 +55,9 @@
     <p id="phone"><i class="fas fa-phone-volume"></i>
         <%= @place.phone_number%>
     </p>
+    <p>
+        <%= link_to "#{@place.website}", @place.website, target: "_blank" %>
+    </p>
     </div>
 
     <!-- <h2><%#= link_to "Like", user_matches_path(@place), method: :get %></h2> -->
@@ -62,7 +66,6 @@
     <p id="website"><%= @place.website%></p>
 </a> -->
 
-<%= link_to "#{@place.website}", @place.website %>
 <hr>
 <div class="timetable">
   <!-- <i class="far fa-clock"></i> -->
