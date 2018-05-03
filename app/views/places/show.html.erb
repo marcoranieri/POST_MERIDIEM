@@ -9,19 +9,6 @@
 
   <div class="main-place-information">
     <div class="place">
-
-      <div class="rating-show">
-        <% blank_stars = 5 - @place.google_data["rating"].to_i %>
-        <% @place.google_data["rating"].to_i.times do  %>
-        <i class="fas fa-star filledstars"></i>
-        <% end %>
-        <% blank_stars.times do %>
-        <i class="far fa-star blankstars"></i>
-        <% end %>
-    </div>
-
-      <div class="title">
-
         <div class="goto-maps">
               <%= link_to "https://www.google.com/maps/dir/?api=1&destination=#{URI::encode(@place.address)}", target: "_blank" do %>
                 <p><i class="fas fa-street-view"></i></p>
@@ -29,16 +16,26 @@
         </div>
 
         <div class="place-title">
+          <div class="rating-show">
+            <% blank_stars = 5 - @place.google_data["rating"].to_i %>
+            <% @place.google_data["rating"].to_i.times do  %>
+            <i class="fas fa-star filledstars"></i>
+            <% end %>
+            <% blank_stars.times do %>
+            <i class="far fa-star blankstars"></i>
+            <% end %>
+         </div>
           <h2><%= @place.name.capitalize %></h2>
       </div>
+
       <div>
         <%= link_to place_matches_path(@place, {:place => {:place_id =>  @place.id }}), :action => :create, :method => :post do %>
-        <i id="heart-icon" class="far fa-heart"></i>
+        <i id="heart-icon" class="far fa-heart heart-show"></i>
         <% end %>
 
     </div>
 
-</div>
+
 </div>
 </div>
 
