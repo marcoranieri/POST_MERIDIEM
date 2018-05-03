@@ -1,90 +1,140 @@
-<div id="wrapper">
+<div class="wrapper-show">
+  <% if @place.google_data["photos"] != nil %>
+  <% photo_reference = @place.google_data["photos"][0]["photo_reference"] %>
+  <% url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{photo_reference}&key=#{ENV['google_maps_key']}"%>
+  <div class="photo-show" style="background: url('<%= asset_url url %>') center center no-repeat;">
 
-  <div id="place-title">
-    <h2><%= @place.name.capitalize %></h2>
 
-     <i class="fas fa-hand-holding-heart"></i>  <em><small>
-
-    <%= link_to "match it", place_matches_path(@place, {:place => {:place_id =>  @place.id }}), :action => :create, :method => :post, class:"btn btn-pm" %></small></em>
-    <%= link_to "back", places_path %>
-    <h3>Rating: <big><%= @place.google_data["rating"] %></big> <small>/ 5</small></h3>
   </div>
+  <% end %>
 
-  <div id="info-description">
-    <div id="description">
-      <p><%= @place.address%></p>
-      <p><%= @place.phone_number%></p>
+  <div class="main-place-information">
+      <div class="place">
 
-      <a href="<%= "#{@place.urlmaps}" %>" target ="_blank"><p>GO to MAPS - <i class="far fa-map"></i></p></a>
-
-      <%= link_to "Go to address", "https://www.google.com/maps/dir/?api=1&destination=#{URI::encode(@place.address)}", target: "_blank" %>
-
-    <h2><%= link_to "Like", user_matches_path(@place), method: :get %></h2>
-
-    <a href="<%= "#{@place.website}" %>" target ="_blank"><p><%= @place.website%></p></a>
-
-    <% if @place.google_data["photos"] != nil %>
-      <% photo_reference = @place.google_data["photos"][0]["photo_reference"] %>
-
-
-      <% url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{photo_reference}&key=#{ENV['google_maps_key']}"  %>
-    <%= image_tag url, width: "100%" %>
-    <% end %>
-
-
-
-
-
-      <div class='hoursWrapper'>
-        <div class="hoursBox">
-          <div class='hoursContent'>
-            <div class='hoursTitle'>
-              <ul class="select-options">
-                <% @place.google_data["opening_hours"]["weekday_text"].each do |daytime| %>
-                <li>
-                  <%= daytime %>
-                </li>
-                <% end %>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <% (@place.google_data["reviews"] || []).each do |review| %>
-      <div class="review-card">
-        <%= image_tag review['profile_photo_url'], size: "40x40", alt: "review profile pic" %>
-        <div class="flex-item">
-          <p><strong><%= review["author_name"] %></strong></p>
-
-          <% blank_stars = 5 - review["rating"].to_i %>
-          <% review["rating"].to_i.times do  %>
-            <i class="fas fa-star filledstars"></i>
+        <div class="rating-show">
+          <% blank_stars = 5 - @place.google_data["rating"].to_i %>
+          <% @place.google_data["rating"].to_i.times do  %>
+          <i class="fas fa-star filledstars"></i>
           <% end %>
           <% blank_stars.times do %>
-            <i class="far fa-star blankstars"></i>
+          <i class="far fa-star blankstars"></i>
           <% end %>
+      </div>
+
+      <div class="title">
+
+        <div class="goto-maps">
+            <a href="<%= "#{@place.urlmaps}" %>" target ="_blank">
+                <p><i class="fas fa-street-view"></i></p>
+            </a>
+        </div>
+
+        <div class="place-title">
+          <h2><%= @place.name.capitalize %></h2>
+      </div>
+      <div>
+        <%= link_to place_matches_path(@place, {:place => {:place_id =>  @place.id }}), :action => :create, :method => :post do %>
+        <i id="heart-icon" class="far fa-heart"></i>
+        <% end %>
+
+    </div>
+
+</div>
+</div>
+</div>
 
 
-          <% content_text = review["text"] %>
 
+<div class="info-description">
+    <div class="description">
+      <p id="address"><i class="fas fa-map-marker"></i>
+        <%= @place.address%>
+    </p>
 
-          <% if content_text %>
-          <div class="expandable">
-            <p class="text-intro"> <%= content_text.first(100) %> <span class="text-all" style="display:none;"> <%= content_text[99..-1]  %> </span>
-            </p>
-            <% if content_text[99] %>
-              <a class="text-show-more" href="#">Show more</a>
-              <a class="text-show-less" style="display:none;" href="#">Show less</a>
-            <% end %>
+    <p id="phone"><i class="fas fa-phone-volume"></i>
+        <%= @place.phone_number%>
+    </p>
+    </div>
+
+    <!-- <h2><%#= link_to "Like", user_matches_path(@place), method: :get %></h2> -->
+
+<!-- <a href="<%#= "#{@place.website}" %>" target ="_blank">
+    <p id="website"><%= @place.website%></p>
+</a> -->
+
+<%= link_to "#{@place.website}", @place.website %>
+<hr>
+<div class="timetable">
+  <!-- <i class="far fa-clock"></i> -->
+  <div class='hoursWrapper'>
+
+    <div class="hoursBox">
+      <div class='hoursContent'>
+        <div class='hoursTitle'>
+                  <ul class="select-options">
+                    <% @place.google_data["opening_hours"]["weekday_text"].each do |daytime| %>
+                    <li>
+                      <%= daytime %>
+                  </li>
+                  <% end %>
+              </ul>
           </div>
-          <% end %>
+      </div>
+   </div>
+</div>
+</div>
+
+<div class="icons ">
+ <div class="like-place">
+
+
+
+<!--
+                <%#= link_to "https://www.google.com/maps/dir/?api=1&destination=#{URI::encode(@place.address)}", target: "_blank" do %>
+                  <i class="far fa-map"></i>
+                  <%# end %> -->
+              </div>
+
+
+          </div>
+
+
+          <% (@place.google_data["reviews"] || []).each do |review| %>
+          <hr>
+          <div class="review-card">
+            <%= image_tag review['profile_photo_url'], size: "40x40", alt: "review profile pic" %>
+            <div class="flex-item">
+              <p><strong><%= review["author_name"] %></strong></p>
+
+              <% blank_stars = 5 - review["rating"].to_i %>
+              <% review["rating"].to_i.times do  %>
+              <i class="fas fa-star filledstars"></i>
+              <% end %>
+              <% blank_stars.times do %>
+              <i class="far fa-star blankstars"></i>
+              <% end %>
+
+
+              <% content_text = review["text"] %>
+
+
+              <% if content_text %>
+              <div class="expandable">
+                <p class="text-intro"> <%= content_text.first(100) %> <span class="text-all" style="display:none;"> <%= content_text[99..-1]  %> </span>
+                </p>
+                <% if content_text[99] %>
+                <a class="text-show-more" href="#">Show more</a>
+                <a class="text-show-less" style="display:none;" href="#">Show less</a>
+                <% end %>
+            </div>
+            <% end %>
 
 
         </div>
-      </div>
-      <% end %>
-
     </div>
-  </div>
+    <% end %>
+
+</div>
+</div>
+
 </div>
