@@ -10,8 +10,7 @@ class MatchesController < ApplicationController
 
    params.has_key?("username") ? user = params["username"].to_i : user = current_user.id
      @match = Match.new(user_id: user, place_id: params["place_id"].to_i, status: status)
-     @match.save
-
+     saved = @match.save
 
     redirect_to places_path(kind: params[:kind])
   end
