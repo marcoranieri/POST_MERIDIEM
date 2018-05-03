@@ -38,15 +38,20 @@ $(window).on('load', function(){
   if (!getCookie("intro")) {
     $('.tinder--cards').addClass('arbi');
     $('#Swipe-horizontal_1').show().addClass('marco');
+
+    setTimeout(function(){
+      $('.tinder--cards').removeClass('arbi');
+      $('#Swipe-horizontal_1').remove();
+    }, 3000)
+  } else {
+      $('.tinder--cards').removeClass('arbi');
+      $('#Swipe-horizontal_1').remove()
   }
 
   setCookie("intro", "done");
 });
 
-setTimeout(function(){
-  $('.tinder--cards').removeClass('arbi');
-  $('#Swipe-horizontal_1').remove();
-}, 3000);
+
 
 function initCards(card, index) {
   var newCards = document.querySelectorAll('.tinder--card:not(.removed)');

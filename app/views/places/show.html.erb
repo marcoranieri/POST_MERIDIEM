@@ -1,9 +1,7 @@
 <div class="wrapper-show">
   <% if @place.google_data["photos"].size > 0 %>
-
-
-      <div class="photo-show" style="background: url('<%= asset_url @place.image_url %>') center center no-repeat;">
-    </div>
+  <div class="photo-show" style="background: url('<%= asset_url @place.image_url %>') center center no-repeat;">
+  </div>
   <% end %>
 
   <div class="main-place-information">
@@ -17,124 +15,109 @@
         <% blank_stars.times do %>
         <i class="far fa-star blankstars"></i>
         <% end %>
-    </div>
+      </div>
 
       <div class="title">
 
         <div class="goto-maps">
-              <%= link_to "https://www.google.com/maps/dir/?api=1&destination=#{URI::encode(@place.address)}", target: "_blank" do %>
-                <p><i class="fas fa-street-view"></i></p>
-              <% end %>
+          <%= link_to "https://www.google.com/maps/dir/?api=1&destination=#{URI::encode(@place.address)}", target: "_blank" do %>
+          <p><i class="fas fa-street-view"></i></p>
+          <% end %>
         </div>
 
         <div class="place-title">
           <h2><%= @place.name.capitalize %></h2>
+        </div>
+
+        <div>
+          <%= link_to place_matches_path(@place, {:place => {:place_id =>  @place.id }}), :action => :create, :method => :post do %>
+          <i id="heart-icon" class="far fa-heart"></i>
+          <% end %>
+
+        </div>
+
       </div>
-      <div>
-        <%= link_to place_matches_path(@place, {:place => {:place_id =>  @place.id }}), :action => :create, :method => :post do %>
-        <i id="heart-icon" class="far fa-heart"></i>
-        <% end %>
-
     </div>
-
-</div>
-</div>
-</div>
+  </div>
 
 
 
-<div class="info-description">
+  <div class="info-description">
     <div class="description">
       <p id="address"><i class="fas fa-map-marker"></i>
         <%= @place.address%>
-    </p>
+      </p>
 
-    <p id="phone"><i class="fas fa-phone-volume"></i>
+      <p id="phone"><i class="fas fa-phone-volume"></i>
         <%= @place.phone_number%>
-    </p>
-    <p>
+      </p>
+      <p>
         <%= link_to "#{@place.website}", @place.website, target: "_blank" %>
-    </p>
+      </p>
     </div>
 
-    <!-- <h2><%#= link_to "Like", user_matches_path(@place), method: :get %></h2> -->
 
-<!-- <a href="<%#= "#{@place.website}" %>" target ="_blank">
-    <p id="website"><%= @place.website%></p>
-</a> -->
+    <hr>
 
-<hr>
-<div class="timetable">
-  <!-- <i class="far fa-clock"></i> -->
-  <div class='hoursWrapper'>
+    <div class="timetable">
+      <!-- <i class="far fa-clock"></i> -->
+      <div class='hoursWrapper'>
 
-    <div class="hoursBox">
-      <div class='hoursContent'>
-        <div class='hoursTitle'>
-                  <ul class="select-options">
-                    <% @place.google_data["opening_hours"]["weekday_text"].each do |daytime| %>
-                    <li>
-                      <%= daytime %>
-                  </li>
-                  <% end %>
-              </ul>
-          </div>
-      </div>
-   </div>
-</div>
-</div>
-
-<div class="icons ">
- <div class="like-place">
-
-
-
-<!--
-                <%#= link_to "https://www.google.com/maps/dir/?api=1&destination=#{URI::encode(@place.address)}", target: "_blank" do %>
-                  <i class="far fa-map"></i>
-                  <%# end %> -->
-              </div>
-
-
-          </div>
-
-
-          <% (@place.google_data["reviews"] || []).each do |review| %>
-          <hr>
-          <div class="review-card">
-            <%= image_tag review['profile_photo_url'], size: "40x40", alt: "review profile pic" %>
-            <div class="flex-item">
-              <p><strong><%= review["author_name"] %></strong></p>
-
-              <% blank_stars = 5 - review["rating"].to_i %>
-              <% review["rating"].to_i.times do  %>
-              <i class="fas fa-star filledstars"></i>
-              <% end %>
-              <% blank_stars.times do %>
-              <i class="far fa-star blankstars"></i>
-              <% end %>
-
-
-              <% content_text = review["text"] %>
-
-
-              <% if content_text %>
-              <div class="expandable">
-                <p class="text-intro"> <%= content_text.first(100) %> <span class="text-all" style="display:none;"> <%= content_text[99..-1]  %> </span>
-                </p>
-                <% if content_text[99] %>
-                <a class="text-show-more" href="#">Show more</a>
-                <a class="text-show-less" style="display:none;" href="#">Show less</a>
+        <div class="hoursBox">
+          <div class='hoursContent'>
+            <div class='hoursTitle'>
+              <ul class="select-options">
+                <% @place.google_data["opening_hours"]["weekday_text"].each do |daytime| %>
+                <li>
+                  <%= daytime %>
+                </li>
                 <% end %>
+              </ul>
             </div>
-            <% end %>
-
-
+          </div>
         </div>
+      </div>
+    </div>
+
+
+    <% (@place.google_data["reviews"] || []).each do |review| %>
+    <hr>
+
+    <div class="review-card">
+      <%= image_tag review['profile_photo_url'], size: "40x40", alt: "review profile pic" %>
+      <div class="flex-item">
+        <p><strong><%= review["author_name"] %></strong></p>
+
+        <% blank_stars = 5 - review["rating"].to_i %>
+        <% review["rating"].to_i.times do  %>
+        <i class="fas fa-star filledstars"></i>
+        <% end %>
+        <% blank_stars.times do %>
+        <i class="far fa-star blankstars"></i>
+        <% end %>
+
+
+        <% content_text = review["text"] %>
+
+
+        <% if content_text %>
+        <div class="expandable">
+          <p class="text-intro"> <%= content_text.first(100) %> <span class="text-all" style="display:none;"> <%= content_text[99..-1]  %> </span>
+          </p>
+          <% if content_text[99] %>
+          <a class="text-show-more" href="#">Show more</a>
+          <a class="text-show-less" style="display:none;" href="#">Show less</a>
+          <% end %>
+        </div>
+        <% end %>
+
+
+      </div>
     </div>
     <% end %>
 
-</div>
+
+
+  </div>
 </div>
 
-</div>

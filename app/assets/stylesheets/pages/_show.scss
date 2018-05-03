@@ -24,7 +24,7 @@
 
 .hoursWrapper{
         display: flex;
-    font-size: 8px;
+    font-size: 14px;
     align-items: center;
     justify-content: center;
     margin-top: 1px;
@@ -34,7 +34,7 @@
     display: flex;
     flex-flow: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .main-place-information {
@@ -56,6 +56,7 @@
 }
 
 .review-card {
+    text-align: left;
   display: flex;
   padding: 0px 20px;
 }
