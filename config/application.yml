@@ -4,6 +4,11 @@ development:
   # AIzaSyCwv08kQhFM6hDQZ0feTU_Cpvo2CpSIRxg
   #
   #
+  google_api_key_1: "AIzaSyA0nWdqXDT_MmnMqQ-SZdftyFyun-rVFSo"
+  google_api_key_2: "AIzaSyA4M85LOp2O7TZCMETX1bbycCefXT0-0sI"
+  google_api_key_3: "AIzaSyCJt23rbyoONhqzpAlsBk9POUJSuHyD7oQ"
+  google_api_key_4: "AIzaSyDgiUwOe-Z5sO8B1Egen4wESY0gI8S3yH8"
+
 
 
   google_maps_key: "AIzaSyBuNAw58JFXPFcDlnLjEHTy_KI8o_mWqUk"

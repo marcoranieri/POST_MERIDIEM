@@ -12,6 +12,8 @@ gem 'redis'
 gem 'binding_of_caller'
 gem 'better_errors'
 gem 'omniauth-facebook'
+gem 'sass-rails'
+gem 'compass-rails', github: 'Compass/compass-rails'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'

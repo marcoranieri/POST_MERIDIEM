@@ -9,13 +9,11 @@
     <% @user_matches.each do |single_match| %>
       <% if single_match.place.google_data["photos"][0] %>
 
-      <% photo_reference =  single_match.place.google_data["photos"][0]["photo_reference"] %>
-      <% url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{photo_reference}&key=#{ENV['google_maps_key']}" %>
       <div class="col-xs-6">
         <div class="main-card-matches">
 
           <%= link_to place_path(single_match.place) do %>
-           <div class="photo-card" style="background: url(<%= asset_url url %>) no-repeat;"></div>
+           <div class="photo-card" style="background: url('<%= asset_url single_match.place.image_url %>') no-repeat;"></div>
           <% end %>
 
 
