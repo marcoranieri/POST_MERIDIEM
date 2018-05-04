@@ -1,11 +1,11 @@
 <div class="matches-wrapper">
   <div class="user-welcome">
-    <h1>Hello <%= current_user.email.split("@")[0]%> :)</h1>
+    <h1>Hello <%= current_user.email.split("@")[0].capitalize  %> :)</h1>
     <p>The places you love:</p>
   </div>
 
-  <div class="card-matches container">
-    <div class="row">
+  <div class="card-matches">
+    <div class="">
     <% @user_matches.each do |single_match| %>
       <% if single_match.place.google_data["photos"][0] %>
 
@@ -36,7 +36,6 @@
           </div>
         </div>
       </div>
-
       <% end %>
     <% end %>
   </div> <!-- / row -->
